@@ -14,7 +14,7 @@
 
         (function changeValue() {
             if (baProgressModal.getProgress() >= 100) {
-                $state.go('new_page')
+                $state.go('smart_index')
                 baProgressModal.close();
             } else {
                 baProgressModal.setProgress(baProgressModal.getProgress() + 10);

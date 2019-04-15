@@ -27,7 +27,7 @@
         "position": "left",
         "autoGridCount": false,
         "labelFunction": function(value) {
-          return "$" + Math.round(value) + "M";
+          return "" + Math.round(value) + "м³";
         }
       }, {
         color: layoutColors.defaultText,
@@ -85,7 +85,7 @@
         "lineColor": layoutColors.primary,
         "type": "smoothedLine",
         "dashLength": 0.1,
-        "title": "Рентабельность",
+        "title": "Исторические данные по добыче",
         "useLineColorForBulletBorder": true,
         "valueField": "market1",
         "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
@@ -102,7 +102,7 @@
         "lineColor": layoutColors.danger,
         "type": "smoothedLine",
         "dashLength": 1.5,
-        "title": "Прогноз ГТМ",
+        "title": "Факт ГТМ",
         "useLineColorForBulletBorder": true,
         "valueField": "market2",
         "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
@@ -119,7 +119,7 @@
         "lineColor": layoutColors.success,
         "type": "smoothedLine",
         "dashLength": 0.5,
-        "title": "Факт ГТМ",
+        "title": "Прогноз ГТМ",
         "useLineColorForBulletBorder": true,
         "valueField": "market3",
         "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"

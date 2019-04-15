@@ -19,7 +19,7 @@
         mestorojdenie: 'Жанаталап',
         skv: 'ZHT_0001',
         gtm: 'КРС',
-        email: 'mdo@gmail.com',
+        email: '30',
         age: '28'
       },
       {
@@ -27,7 +27,7 @@
         mestorojdenie: 'Гран',
         skv: 'GRN_0001',
         gtm: 'ПРС',
-        email: 'fat@yandex.ru',
+        email: '44',
         age: '45'
       },
       {
@@ -35,7 +35,7 @@
         mestorojdenie: 'Прорва',
         skv: 'PRO_0001',
         gtm: 'ГРП',
-        email: 'twitter@outlook.com',
+        email: '20',
         age: '18'
       },
       {
@@ -43,7 +43,7 @@
         mestorojdenie: 'Досмухамедовское',
         skv: 'DOS_0001',
         gtm: 'ПРС',
-        email: 'snow@gmail.com',
+        email: '19',
         age: '20'
       },
       {
@@ -51,7 +51,7 @@
         mestorojdenie: 'УАЗ',
         skv: 'UAZ_0001',
         gtm: 'КРС',
-        email: 'jack@yandex.ru',
+        email: '28',
         age: '30'
       },
       {
@@ -59,7 +59,7 @@
         mestorojdenie: 'Восточный УАЗ',
         skv: 'UAZ_001V',
         gtm: 'ГРП',
-        email: 'ann@gmail.com',
+        email: '21',
         age: '21'
       },
       {
@@ -67,7 +67,7 @@
         mestorojdenie: 'С. Балгимбаева',
         skv: 'BAL_0001',
         gtm: 'ПРС',
-        email: 'barbara@yandex.ru',
+        email: '42',
         age: '43'
       },
       {
@@ -75,7 +75,7 @@
         mestorojdenie: 'Забурунье',
         skv: 'ZAB_0001',
         gtm: 'КРС',
-        email: 'sevan@outlook.com',
+        email: '13',
         age: '13'
       },
       {
@@ -83,7 +83,7 @@
         mestorojdenie: 'Кенбай',
         skv: 'KEN_0001',
         gtm: 'ГРП',
-        email: 'ruben@gmail.com',
+        email: '20',
         age: '22'
       },
       {
@@ -91,7 +91,7 @@
         mestorojdenie: 'Жамансор',
         skv: 'JMS_0001',
         gtm: 'ПРС',
-        email: 'karen@yandex.ru',
+        email: '31',
         age: '33'
       },
       {
@@ -99,7 +99,7 @@
         mestorojdenie: 'Жанаталап',
         skv: 'ZHT_0001',
         gtm: '@mark',
-        email: 'mark@gmail.com',
+        email: '37',
         age: '38'
       },
       {
@@ -107,7 +107,7 @@
         mestorojdenie: 'Гран',
         skv: 'GRN_0001',
         gtm: '@jacob',
-        email: 'jacob@yandex.ru',
+        email: '45',
         age: '48'
       },
       {
@@ -115,7 +115,7 @@
         mestorojdenie: 'Жоламанов',
         skv: 'Hakob',
         gtm: '@haik',
-        email: 'haik@outlook.com',
+        email: '47',
         age: '48'
       },
       {
@@ -123,7 +123,7 @@
         mestorojdenie: 'Макат',
         skv: 'Jirair',
         gtm: '@garegin',
-        email: 'garegin@gmail.com',
+        email: '39',
         age: '40'
       },
       {
@@ -131,7 +131,7 @@
         mestorojdenie: 'Ботахан',
         skv: 'Bedros',
         gtm: '@krikor',
-        email: 'krikor@yandex.ru',
+        email: '30',
         age: '32'
       },
       {
@@ -504,7 +504,7 @@
         mestorojdenie: 'Жанаталап',
         skv: 'ZHT_0001',
         gtm: 'КРС',
-        email: 'mdo@gmail.com',
+        email: '30',
         age: '28',
         status: 'info'
       },
@@ -513,7 +513,7 @@
         mestorojdenie: 'Гран',
         skv: 'GRN_0001',
         gtm: 'ПРС',
-        email: 'fat@yandex.ru',
+        email: '44',
         age: '45',
         status: 'primary'
       },
@@ -522,7 +522,7 @@
         mestorojdenie: 'Прорва',
         skv: 'PRO_0001',
         gtm: 'ГРП',
-        email: 'twitter@outlook.com',
+        email: '20',
         age: '18',
         status: 'success'
       },
@@ -531,7 +531,7 @@
         mestorojdenie: 'Досмухамедовское',
         skv: 'DOS_0001',
         gtm: 'ПРС',
-        email: 'snow@gmail.com',
+        email: '19',
         age: '20',
         status: 'danger'
       },
@@ -540,7 +540,7 @@
         mestorojdenie: 'УАЗ',
         skv: 'UAZ_0001',
         gtm: 'КРС',
-        email: 'jack@yandex.ru',
+        email: '28',
         age: '30',
         status: 'warning'
       }
