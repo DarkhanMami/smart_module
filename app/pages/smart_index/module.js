@@ -10,7 +10,7 @@
         .state('smart_index', {
           url: '/smart_index',
           templateUrl: 'app/pages/smart_index/smart_index.html',
-          controller: 'TablesPageCtrl',
+          controller: 'SmartPageCtrl',
           title: 'Модуль',
           sidebarMeta: {
             icon: 'fa fa-bar-chart',

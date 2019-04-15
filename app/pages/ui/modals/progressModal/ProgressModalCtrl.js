@@ -18,7 +18,7 @@
                 baProgressModal.close();
             } else {
                 baProgressModal.setProgress(baProgressModal.getProgress() + 10);
-                $timeout(changeValue, 600);
+                $timeout(changeValue, 250);
             }
         })();
     }
