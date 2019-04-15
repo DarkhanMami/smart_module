@@ -39,40 +39,42 @@
         "position": "right",
         "autoGridCount": false
       }],
-      "graphs": [{
-        "id": "g3",
-        color: layoutColors.defaultText,
-        "valueAxis": "v1",
-        "lineColor": layoutColors.primaryLight,
-        "fillColors": layoutColors.primaryLight,
-        "fillAlphas": 0.8,
-        "lineAlpha": 0.8,
-        "type": "column",
-        "title": "Добыча жидкости",
-        "valueField": "sales2",
-        "clustered": false,
-        "columnWidth": 0.5,
-        "lineColorField" : layoutColors.defaultText,
-        "legendValueText": "$[[value]]M",
-        "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]M</b>"
-      }, {
-        "id": "g4",
-        "valueAxis": "v1",
-        color: layoutColors.defaultText,
-        "lineColor": layoutColors.primary,
-        "fillColors": layoutColors.primary,
-        "fillAlphas": 0.9,
-        "lineAlpha": 0.9,
-        "type": "column",
-        "title": "Добыча нефти",
-        "valueField": "sales1",
-        "clustered": false,
-        "columnWidth": 0.3,
-        "legendValueText": "$[[value]]M",
-        "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]M</b>"
-      }, {
+      "graphs": [
+      // {
+      //   "id": "g3",
+      //   color: layoutColors.defaultText,
+      //   "valueAxis": "v1",
+      //   "lineColor": layoutColors.primaryLight,
+      //   "fillColors": layoutColors.primaryLight,
+      //   "fillAlphas": 0.8,
+      //   "lineAlpha": 0.8,
+      //   "type": "column",
+      //   "title": "Добыча жидкости",
+      //   "valueField": "sales2",
+      //   "clustered": false,
+      //   "columnWidth": 0.5,
+      //   "lineColorField" : layoutColors.defaultText,
+      //   "legendValueText": "$[[value]]M",
+      //   "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]M</b>"
+      // }, {
+      //   "id": "g4",
+      //   "valueAxis": "v1",
+      //   color: layoutColors.defaultText,
+      //   "lineColor": layoutColors.primary,
+      //   "fillColors": layoutColors.primary,
+      //   "fillAlphas": 0.9,
+      //   "lineAlpha": 0.9,
+      //   "type": "column",
+      //   "title": "Добыча нефти",
+      //   "valueField": "sales1",
+      //   "clustered": false,
+      //   "columnWidth": 0.3,
+      //   "legendValueText": "$[[value]]M",
+      //   "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]M</b>"
+      // }, 
+      {
         "id": "g1",
-        "valueAxis": "v2",
+        "valueAxis": "v1",
         "bullet": "round",
         "bulletBorderAlpha": 1,
         "bulletColor": layoutColors.defaultText,
@@ -80,15 +82,16 @@
         "bulletSize": 5,
         "hideBulletsCount": 50,
         "lineThickness": 2,
-        "lineColor": layoutColors.danger,
+        "lineColor": layoutColors.primary,
         "type": "smoothedLine",
+        "dashLength": 0.1,
         "title": "Рентабельность",
         "useLineColorForBulletBorder": true,
         "valueField": "market1",
         "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
       }, {
         "id": "g2",
-        "valueAxis": "v2",
+        "valueAxis": "v1",
         color: layoutColors.defaultText,
         "bullet": "round",
         "bulletBorderAlpha": 1,
@@ -96,16 +99,16 @@
         "bulletSize": 5,
         "hideBulletsCount": 50,
         "lineThickness": 2,
-        "lineColor": layoutColors.warning,
+        "lineColor": layoutColors.danger,
         "type": "smoothedLine",
-        "dashLength": 5,
+        "dashLength": 1.5,
         "title": "Прогноз ГТМ",
         "useLineColorForBulletBorder": true,
         "valueField": "market2",
         "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
       }, {
         "id": "g3",
-        "valueAxis": "v2",
+        "valueAxis": "v1",
         color: layoutColors.defaultText,
         "bullet": "round",
         "bulletBorderAlpha": 1,
@@ -113,9 +116,9 @@
         "bulletSize": 5,
         "hideBulletsCount": 50,
         "lineThickness": 2,
-        "lineColor": layoutColors.blue,
+        "lineColor": layoutColors.success,
         "type": "smoothedLine",
-        "dashLength": 5,
+        "dashLength": 0.5,
         "title": "Факт ГТМ",
         "useLineColorForBulletBorder": true,
         "valueField": "market3",
@@ -167,112 +170,6 @@
       "export": {
         "enabled": true
       },
-      "dataProvider": [{
-        "date": "2013-01-16",
-        "market1": 71,
-        "market2": 75,
-        "market3": 85,
-        "sales1": 5,
-        "sales2": 8
-      }, {
-        "date": "2013-01-17",
-        "market1": 74,
-        "market2": 78,
-        "market3": 88,
-        "sales1": 4,
-        "sales2": 6
-      }, {
-        "date": "2013-01-18",
-        "market1": 78,
-        "market2": 88,
-        "market3": 98,
-        "sales1": 5,
-        "sales2": 2
-      }, {
-        "date": "2013-01-19",
-        "market1": 85,
-        "market2": 89,
-        "market3": 99,
-        "sales1": 8,
-        "sales2": 9
-      }, {
-        "date": "2013-01-20",
-        "market1": 82,
-        "market2": 89,
-        "market3": 99,
-        "sales1": 9,
-        "sales2": 6
-      }, {
-        "date": "2013-01-21",
-        "market1": 83,
-        "market2": 85,
-        "market3": 95,
-        "sales1": 3,
-        "sales2": 5
-      }, {
-        "date": "2013-01-22",
-        "market1": 88,
-        "market2": 92,
-        "market3": 102,
-        "sales1": 5,
-        "sales2": 7
-      }, {
-        "date": "2013-01-23",
-        "market1": 85,
-        "market2": 90,
-        "market3": 100,
-        "sales1": 7,
-        "sales2": 6
-      }, {
-        "date": "2013-01-24",
-        "market1": 85,
-        "market2": 91,
-        "market3": 101,
-        "sales1": 9,
-        "sales2": 5
-      }, {
-        "date": "2013-01-25",
-        "market1": 80,
-        "market2": 84,
-        "market3": 94,
-        "sales1": 5,
-        "sales2": 8
-      }, {
-        "date": "2013-01-26",
-        "market1": 87,
-        "market2": 92,
-        "market3": 102,
-        "sales1": 4,
-        "sales2": 8
-      }, {
-        "date": "2013-01-27",
-        "market1": 84,
-        "market2": 87,
-        "market3": 97,
-        "sales1": 3,
-        "sales2": 4
-      }, {
-        "date": "2013-01-28",
-        "market1": 83,
-        "market2": 88,
-        "market3": 98,
-        "sales1": 5,
-        "sales2": 7
-      }, {
-        "date": "2013-01-29",
-        "market1": 84,
-        "market2": 87,
-        "market3": 97,
-        "sales1": 5,
-        "sales2": 8
-      }, {
-        "date": "2013-01-30",
-        "market1": 81,
-        "market2": 85,
-        "market3": 95,
-        "sales1": 4,
-        "sales2": 7
-      }],
       pathToImages: layoutPaths.images.amChart
     });
     
@@ -283,6 +180,13 @@
                 var obj = {};
                 obj["date"] = data['train']['date'][x];
                 obj["market1"] = data['train']['fluid'][x];
+                result.push(obj);
+            }
+            for (var x in data['valid']['date']) {
+                var obj = {};
+                obj["date"] = data['valid']['date'][x];
+                obj["market2"] = data['valid']['fluid'][x];
+                obj["market3"] = data['forecast']['fluid'][x];
                 result.push(obj);
             }
             chart["dataProvider"] = result;
