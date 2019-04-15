@@ -1,0 +1,51 @@
+<div class="horizontal-scroll">
+  <div class="form-group select-page-size-wrap ">
+    <label>Количество строк
+      <select class="form-control selectpicker show-tick" title="Количество строк" selectpicker
+              ng-model="smartTablePageSize" ng-options="i for i in [5,10,15,20,25]">
+      </select>
+    </label>
+  </div>
+  <table class="table" st-table="smartTableData">
+    <thead>
+    <tr class="sortable ">
+      <th class="table-id" st-sort="id" st-sort-default="true">#</th>
+      <th st-sort="mestorojdenie">Месторождение</th>
+      <th st-sort="skv">Скважина</th>
+      <th st-sort="gtm">ГТМ</th>
+      <th st-sort="email">Прогноз</th>
+      <th st-sort="age">Факт</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th><input st-search="mestorojdenie" placeholder="Поиск месторождения" class="input-sm form-control search-input"
+                 type="search"/></th>
+      <th><input st-search="skv" placeholder="Поиск скважины" class="input-sm form-control search-input"
+                 type="search"/></th>
+      <th><input st-search="gtm" placeholder="Поиск ГТМ" class="input-sm form-control search-input"
+                 type="search"/></th>
+      <th><input st-search="email" placeholder="Поиск ..." class="input-sm form-control search-input" type="search"/>
+      </th>
+      <th><input st-search="age" placeholder="Поиск ..." class="input-sm form-control search-input" type="search"/>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in smartTableData">
+      <td class="table-id">{{item.id}}</td>
+      <td>{{item.mestorojdenie}}</td>
+      <td>{{item.skv}}</td>
+      <td>{{item.gtm}}</td>
+      <td><a class="email-link" ng-href="mailto:{{item.email}}">{{item.email}}</a></td>
+      <td>{{item.age}}</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="6" class="text-center">
+        <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+</div>

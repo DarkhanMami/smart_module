@@ -1,0 +1,16 @@
+<div class="row pie-charts">
+  <div class="pie-chart-item-container" ng-repeat="chart in charts">
+    <div ba-panel>
+      <div class="pie-chart-item">
+        <div class="chart" rel="{{ ::chart.color }}" data-percent="60"> <span class="percent"></span> </div>
+        <div class="description">
+          <div>{{ ::chart.description }}</div>
+          <div class="description-stats">{{ ::chart.stats }}</div>
+        </div>
+        <!-- <i class="chart-icon i-{{ ::chart.icon }}"></i> -->
+        <ion-icon class="ionicons {{ ::chart.icon }}" style="font-size: 65px; float: right; margin-right: 15px; margin-top: 10px"></ion-icon>
+
+      </div>
+    </div>
+  </div>
+</div>
