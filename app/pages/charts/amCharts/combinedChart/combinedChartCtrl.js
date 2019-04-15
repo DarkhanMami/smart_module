@@ -9,7 +9,7 @@
     .controller('combinedChartCtrl', combinedChartCtrl);
 
   /** @ngInject */
-  function combinedChartCtrl($element, baConfig, layoutPaths) {
+  function combinedChartCtrl($element, baConfig, layoutPaths, $http) {
     var layoutColors = baConfig.colors;
     var id = $element[0].getAttribute('id');
     var chart = AmCharts.makeChart(id, {
@@ -275,6 +275,23 @@
       }],
       pathToImages: layoutPaths.images.amChart
     });
+    
+    $http.get("data/data.json")
+        .success(function (data) {
+            var result = [];
+            for (var x in data['train']['date']) {
+                var obj = {};
+                obj["date"] = data['train']['date'][x];
+                obj["market1"] = data['train']['fluid'][x];
+                result.push(obj);
+            }
+            chart["dataProvider"] = result;
+            chart.validateData();
+        })
+        .error(function (data) {
+            console.log("there was an error");
+        });
+
   }
 
 })();
