@@ -19,8 +19,8 @@
         mestorojdenie: 'Жанаталап',
         skv: 'ZHT_0001',
         gtm: 'КРС',
-        email: '30',
-        age: '28'
+        email: 'Ликвидация скважины',
+        age: '27.10.2018'
       },
       {
         id: 2,
@@ -52,7 +52,7 @@
         skv: 'UAZ_0001',
         gtm: 'КРС',
         email: '28',
-        age: '30'
+        age: 'Ликвидация скважины'
       },
       {
         id: 6,
@@ -131,7 +131,7 @@
         mestorojdenie: 'Ботахан',
         skv: 'Bedros',
         gtm: '@krikor',
-        email: '30',
+        email: 'Ликвидация скважины',
         age: '32'
       },
       {
@@ -247,7 +247,7 @@
         "age": 15
       },
       {
-        "id": 30,
+        "id": Ликвидация скважины,
         "mestorojdenie": "Boyle",
         "skv": "Larson",
         "gtm": "@Summers",
@@ -504,7 +504,7 @@
         mestorojdenie: 'Жанаталап',
         skv: 'ZHT_0001',
         gtm: 'КРС',
-        email: '30',
+        email: 'Ликвидация скважины',
         age: '28',
         status: 'info'
       },
@@ -541,7 +541,7 @@
         skv: 'UAZ_0001',
         gtm: 'КРС',
         email: '28',
-        age: '30',
+        age: 'Ликвидация скважины',
         status: 'warning'
       }
     ];

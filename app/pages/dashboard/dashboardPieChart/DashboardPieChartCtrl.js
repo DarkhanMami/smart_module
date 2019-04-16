@@ -14,12 +14,12 @@
     $scope.charts = [{
       color: pieColor,
       description: 'Количество ПРС',
-      stats: '57,820',
+      stats: '9,820',
       icon: 'ion-wrench',
     }, {
       color: pieColor,
       description: 'Количество КРС',
-      stats: '89,745',
+      stats: '6,745',
       icon: 'ion-settings',
       // icon: 'money',
     },
@@ -32,7 +32,7 @@
     {
       color: pieColor,
       description: 'Количество ГРП',
-      stats: '178,391',
+      stats: '1,391',
       icon: 'ion-help-buoy',
     }, {
       color: pieColor,

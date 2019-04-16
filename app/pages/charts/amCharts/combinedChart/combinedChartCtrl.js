@@ -23,7 +23,7 @@
         axisColor: layoutColors.defaultText,
         gridColor: layoutColors.defaultText,
         "id": "v1",
-        "title": "Рентабельность",
+        "title": "Добыча жидкости",
         "position": "left",
         "autoGridCount": false,
         "labelFunction": function(value) {

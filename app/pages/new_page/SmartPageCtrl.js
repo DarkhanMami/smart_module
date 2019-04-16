@@ -19,120 +19,120 @@
         mestorojdenie: 'Жанаталап',
         skv: 'ZHT_0001',
         gtm: 'КРС',
-        email: '30',
-        age: '28'
+        email: 'Ликвидация скважины',
+        age: 'Июнь'
       },
       {
         id: 2,
         mestorojdenie: 'Гран',
         skv: 'GRN_0001',
         gtm: 'ПРС',
-        email: '44',
-        age: '45'
+        email: 'Смена полированного штока',
+        age: 'Май'
       },
       {
         id: 3,
         mestorojdenie: 'Прорва',
         skv: 'PRO_0001',
         gtm: 'ГРП',
-        email: '20',
-        age: '18'
+        email: 'Подготовка (проведение) ГРП',
+        age: 'Август'
       },
       {
         id: 4,
         mestorojdenie: 'Досмухамедовское',
         skv: 'DOS_0001',
         gtm: 'ПРС',
-        email: '19',
-        age: '20'
+        email: 'Замена СУСГ',
+        age: 'Июль'
       },
       {
         id: 5,
         mestorojdenie: 'УАЗ',
         skv: 'UAZ_0001',
         gtm: 'КРС',
-        email: '28',
-        age: '30'
+        email: 'Отключение отдельных обводненных интервалов пласта',
+        age: 'Июнь'
       },
       {
         id: 6,
         mestorojdenie: 'Восточный УАЗ',
         skv: 'UAZ_001V',
         gtm: 'ГРП',
-        email: '21',
-        age: '21'
+        email: 'Подготовка к ГРП',
+        age: 'Сентябрь'
       },
       {
         id: 7,
         mestorojdenie: 'С. Балгимбаева',
         skv: 'BAL_0001',
         gtm: 'ПРС',
-        email: '42',
-        age: '43'
+        email: 'Смена насоса',
+        age: 'Май'
       },
       {
         id: 8,
         mestorojdenie: 'Забурунье',
         skv: 'ZAB_0001',
         gtm: 'КРС',
-        email: '13',
-        age: '13'
+        email: 'Перевод на использование по другому назначению',
+        age: 'Июль'
       },
       {
         id: 9,
         mestorojdenie: 'Кенбай',
         skv: 'KEN_0001',
         gtm: 'ГРП',
-        email: '20',
-        age: '22'
+        email: 'Подготовка к ГРП',
+        age: 'Октябрь'
       },
       {
         id: 10,
         mestorojdenie: 'Жамансор',
         skv: 'JMS_0001',
         gtm: 'ПРС',
-        email: '31',
-        age: '33'
+        email: 'Очистка и промывка забоя',
+        age: 'Июнь'
       },
       {
         id: 11,
         mestorojdenie: 'Жанаталап',
         skv: 'ZHT_0001',
-        gtm: '@mark',
-        email: '37',
-        age: '38'
+        gtm: 'ПРС',
+        email: 'Проверка винтовой пары',
+        age: 'Август'
       },
       {
         id: 12,
         mestorojdenie: 'Гран',
         skv: 'GRN_0001',
-        gtm: '@jacob',
-        email: '45',
-        age: '48'
+        gtm: 'ПРС',
+        email: 'Ревизия насоса',
+        age: 'Май'
       },
       {
         id: 13,
         mestorojdenie: 'Жоламанов',
-        skv: 'Hakob',
-        gtm: '@haik',
-        email: '47',
-        age: '48'
+        skv: 'ZHM_0654',
+        gtm: 'КРС',
+        email: 'Смена насоса',
+        age: 'Апрель'
       },
       {
         id: 14,
         mestorojdenie: 'Макат',
-        skv: 'Jirair',
-        gtm: '@garegin',
-        email: '39',
-        age: '40'
+        skv: 'MKT_0034',
+        gtm: 'ПРС',
+        email: 'Замена полированного штока',
+        age: 'Июнь'
       },
       {
         id: 15,
         mestorojdenie: 'Ботахан',
-        skv: 'Bedros',
-        gtm: '@krikor',
-        email: '30',
-        age: '32'
+        skv: 'BTN_0068',
+        gtm: 'ПРС',
+        email: 'Смена насоса',
+        age: 'Апрель'
       },
       {
         "id": 16,
