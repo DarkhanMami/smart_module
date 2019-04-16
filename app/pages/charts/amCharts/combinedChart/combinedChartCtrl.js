@@ -9,7 +9,7 @@
     .controller('combinedChartCtrl', combinedChartCtrl);
 
   /** @ngInject */
-  function combinedChartCtrl($element, baConfig, layoutPaths, $http) {
+  function combinedChartCtrl($element, baConfig, layoutPaths, $http, $rootScope) {
     var layoutColors = baConfig.colors;
     var id = $element[0].getAttribute('id');
     var chart = AmCharts.makeChart(id, {
@@ -182,15 +182,17 @@
                 obj["market1"] = data['train']['fluid'][x];
                 result.push(obj);
             }
-            for (var x in data['valid']['date']) {
-                var obj = {};
-                obj["date"] = data['valid']['date'][x];
-                obj["market2"] = data['valid']['fluid'][x];
-                obj["market3"] = data['forecast']['fluid'][x];
-                result.push(obj);
-            }
+            // for (var x in data['valid']['date']) {
+            //     var obj = {};
+            //     obj["date"] = data['valid']['date'][x];
+            //     obj["market2"] = data['valid']['fluid'][x];
+            //     obj["market3"] = data['forecast']['fluid'][x];
+            //     result.push(obj);
+            // }
             chart["dataProvider"] = result;
             chart.validateData();
+            $rootScope.main_chart = chart;
+            $rootScope.chart_data = data;
         })
         .error(function (data) {
             console.log("there was an error");

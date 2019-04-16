@@ -10,7 +10,7 @@
         .state('new_page', {
           url: '/new_page',
           templateUrl: 'app/pages/new_page/new_page.html',
-          controller: 'TablesPageCtrl',
+          controller: 'SmartPageCtrl',
           title: 'Модуль',
           sidebarMeta: {
             icon: 'fa fa-bar-chart',

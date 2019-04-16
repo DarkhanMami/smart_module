@@ -5,11 +5,11 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.tables')
-      .controller('TablesPageCtrl', TablesPageCtrl);
+  angular.module('BlurAdmin.pages.new_page')
+      .controller('SmartPageCtrl', SmartPageCtrl);
 
   /** @ngInject */
-  function TablesPageCtrl($scope, $filter, editableOptions, editableThemes) {
+  function SmartPageCtrl($scope, $rootScope, $filter, editableOptions, editableThemes) {
 
     $scope.smartTablePageSize = 10;
 
@@ -688,6 +688,30 @@
       }
       return selected.length ? selected[0].text : 'Not set';
     };
+
+
+    $scope.button_prognoz = function() {
+        for (var x in $rootScope.chart_data['valid']['date']) {
+            var obj = {};
+            obj["date"] = $rootScope.chart_data['valid']['date'][x];
+            // obj["market2"] = $rootScope.chart_data['valid']['fluid'][x];
+            obj["market3"] = $rootScope.chart_data['forecast']['fluid'][x];
+            $rootScope.main_chart["dataProvider"].push(obj);
+                    
+        }
+        $rootScope.main_chart.validateData();
+    }
+    $scope.button_fakt = function() {
+        for (var x in $rootScope.chart_data['valid']['date']) {
+            var obj = {};
+            obj["date"] = $rootScope.chart_data['valid']['date'][x];
+            obj["market2"] = $rootScope.chart_data['valid']['fluid'][x];
+            // obj["market3"] = $rootScope.chart_data['forecast']['fluid'][x];
+            $rootScope.main_chart["dataProvider"].push(obj);
+                    
+        }
+        $rootScope.main_chart.validateData();
+    }
 
 
     $scope.removeUser = function(index) {

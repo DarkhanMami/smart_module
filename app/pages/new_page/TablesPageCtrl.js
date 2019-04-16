@@ -689,7 +689,6 @@
       return selected.length ? selected[0].text : 'Not set';
     };
 
-
     $scope.removeUser = function(index) {
       $scope.users.splice(index, 1);
     };
