@@ -1,16 +1,16 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.smart_index', [])
+  angular.module('BlurAdmin.pages.new_page', [])
       .config(routeConfig);
 
   /** @ngInject */
   function routeConfig($stateProvider) {
     $stateProvider
-        .state('smart_index', {
-          url: '/smart_index',
-          templateUrl: 'app/pages/smart_index/smart_index.html',
-          controller: 'SmartPageCtrl',
+        .state('new_page', {
+          url: '/new_page',
+          templateUrl: 'app/pages/new_page/new_page.html',
+          controller: 'TablesPageCtrl',
           title: 'Модуль',
           sidebarMeta: {
             icon: 'fa fa-bar-chart',

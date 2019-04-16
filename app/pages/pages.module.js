@@ -16,14 +16,14 @@
     'BlurAdmin.pages.charts',
     'BlurAdmin.pages.maps',
     'BlurAdmin.pages.profile',
-    'BlurAdmin.pages.smart_index',
+    'BlurAdmin.pages.new_page',
     'BlurAdmin.pages.uploader',
   ])
       .config(routeConfig);
 
   /** @ngInject */
   function routeConfig($urlRouterProvider, baSidebarServiceProvider) {
-    $urlRouterProvider.otherwise('/uploader');
+    $urlRouterProvider.otherwise('/new_page');
 
     baSidebarServiceProvider.addStaticItem({
       title: 'Вход',
