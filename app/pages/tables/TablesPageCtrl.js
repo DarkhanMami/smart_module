@@ -247,7 +247,7 @@
         "age": 15
       },
       {
-        "id": Ликвидация скважины,
+        "id": "Ликвидация скважины",
         "mestorojdenie": "Boyle",
         "skv": "Larson",
         "gtm": "@Summers",

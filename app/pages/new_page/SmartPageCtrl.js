@@ -710,6 +710,80 @@
             $rootScope.main_chart["dataProvider"].push(obj);
                     
         }
+        // $rootScope.main_chart.graphs[0].type = 'column';
+        $rootScope.main_chart.validateData();
+    }
+    $scope.button_nasos = function() {
+        $rootScope.main_chart.graphs[0].hidden = true;
+        $rootScope.main_chart.dataProvider = [
+            {
+              "date": "2018-01",
+              "sales1": 5,
+              "sales2": 8,
+              "oil1": 4,
+              "oil2": 5
+            }, {
+              "date": "2018-02",
+              "sales1": 4,
+              "sales2": 6,
+              "oil1": 6,
+              "oil2": 3
+            }, {
+              "date": "2018-03",
+              "sales1": 5,
+              "sales2": 2,
+              "oil1": 8,
+              "oil2": 5
+            }, {
+              "date": "2018-04",
+              "sales1": 8,
+              "sales2": 9,
+              "oil1": 1,
+              "oil2": 3
+            }, {
+              "date": "2018-05",
+              "sales1": 9,
+              "sales2": 6,
+              "oil1": 7,
+              "oil2": 4
+            }, {
+              "date": "2018-06",
+              "sales1": 3,
+              "sales2": 5,
+              "oil1": 6,
+              "oil2": 2
+            }, {
+              "date": "2018-07",
+              "sales1": 5,
+              "sales2": 7,
+              "oil1": 3,
+              "oil2": 6
+            }, {
+              "date": "2018-08",
+              "sales1": 7,
+              "sales2": 6,
+              "oil1": 7,
+              "oil2": 4
+            }, {
+              "date": "2018-09",
+              "sales1": 9,
+              "sales2": 5,
+              "oil1": 5,
+              "oil2": 2
+            }, {
+              "date": "2018-10",
+              "sales1": 5,
+              "sales2": 8,
+              "oil1": 5,
+              "oil2": 5
+            }, {
+              "date": "2018-12",
+              "sales1": 7,
+              "sales2": 6,
+              "oil1": 9,
+              "oil2": 6
+            }];
+        $rootScope.main_chart.categoryAxis.parseDates = false;
         $rootScope.main_chart.validateData();
     }
 

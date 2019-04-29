@@ -23,7 +23,7 @@
 
   /** @ngInject */
   function routeConfig($urlRouterProvider, baSidebarServiceProvider) {
-    $urlRouterProvider.otherwise('/new_page');
+    $urlRouterProvider.otherwise('/uploader');
 
     baSidebarServiceProvider.addStaticItem({
       title: 'Вход',

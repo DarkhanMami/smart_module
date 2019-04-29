@@ -34,9 +34,9 @@
     <tr ng-repeat="item in smartTableData">
       <td class="table-id">{{item.id}}</td>
       <td>{{item.mestorojdenie}}</td>
-      <td>{{item.skv}}</td>
+      <td> <a class="email-link" ng-href="">{{item.skv}}</a></td>
       <td>{{item.gtm}}</td>
-      <td><a class="email-link" ng-href="mailto:{{item.email}}">{{item.email}}</a></td>
+      <td>{{item.email}}</td> <!-- <a class="email-link" ng-href="mailto:{{item.email}}">{{item.email}}</a> -->
       <td>{{item.age}}</td>
     </tr>
     </tbody>
