@@ -713,6 +713,32 @@
             var obj = {};
             obj["date"] = data['train']['date'][x];
             obj["oil1"] = data['train']['oilloss'][x];
+            result.push(obj);
+        }
+        $rootScope.main_chart.categoryAxis.parseDates = true;
+        $rootScope.main_chart.dataProvider = result;
+
+        for (var x in $rootScope.chart_data['valid']['date']) {
+            var obj = {};
+            obj["date"] = $rootScope.chart_data['valid']['date'][x];
+            obj["oil2"] = $rootScope.chart_data['forecast']['oilloss'][x];
+            $rootScope.main_chart["dataProvider"].push(obj);
+                    
+        }
+
+
+
+        $rootScope.main_chart.validateData();
+    }
+
+    $scope.button_fourth = function () {
+        $rootScope.main_chart.dataProvider = [];
+        var result = [];
+        $rootScope.main_chart.graphs[0].hidden = false;
+        var data = $rootScope.chart_data;
+        for (var x in data['train']['date']) {
+            var obj = {};
+            obj["date"] = data['train']['date'][x];
             obj["loss1"] = data['train']['remont'][x];
             result.push(obj);
         }
@@ -722,14 +748,10 @@
         for (var x in $rootScope.chart_data['valid']['date']) {
             var obj = {};
             obj["date"] = $rootScope.chart_data['valid']['date'][x];
-            // obj["market2"] = $rootScope.chart_data['valid']['fluid'][x];
-            obj["oil2"] = $rootScope.chart_data['forecast']['oilloss'][x];
             obj["loss2"] = $rootScope.chart_data['forecast']['remont'][x];
             $rootScope.main_chart["dataProvider"].push(obj);
                     
         }
-
-
 
         $rootScope.main_chart.validateData();
     }
