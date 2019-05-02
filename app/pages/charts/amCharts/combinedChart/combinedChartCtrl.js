@@ -37,6 +37,15 @@
         "gridAlpha": 0,
         "position": "right",
         "autoGridCount": false
+      }, {
+        color: layoutColors.defaultText,
+        axisColor: layoutColors.defaultText,
+        gridColor: layoutColors.defaultText,
+        "id": "v3",
+        "title": "Простои (дни)",
+        "gridAlpha": 0,
+        "position": "right",
+        "autoGridCount": false
       }],
       "graphs": [
       {
@@ -142,7 +151,7 @@
         "lineColor": layoutColors.successLight,
         "type": "smoothedLine",
         "dashLength": 1.5,
-        "title": "Фактор 1",
+        "title": "Потери факт",
         "useLineColorForBulletBorder": true,
         "valueField": "oil1",
         "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
@@ -160,9 +169,45 @@
         "lineColor": layoutColors.primaryLight,
         "type": "smoothedLine",
         "dashLength": 0.5,
-        "title": "Фактор 2",
+        "title": "Потери прогноз",
         "useLineColorForBulletBorder": true,
         "valueField": "oil2",
+        "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
+      }, {
+        "id": "g8",
+        "valueAxis": "v3",
+        "dataDateFormat": "YYYY-MM",
+        color: layoutColors.defaultText,
+        "bullet": "round",
+        "bulletBorderAlpha": 1,
+        "bulletColor": layoutColors.defaultText,
+        "bulletSize": 5,
+        "hideBulletsCount": 50,
+        "lineThickness": 2,
+        "lineColor": layoutColors.primaryLight,
+        "type": "smoothedLine",
+        "dashLength": 0.5,
+        "title": "Простои факт",
+        "useLineColorForBulletBorder": true,
+        "valueField": "loss1",
+        "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
+      }, {
+        "id": "g9",
+        "valueAxis": "v3",
+        "dataDateFormat": "YYYY-MM",
+        color: layoutColors.defaultText,
+        "bullet": "round",
+        "bulletBorderAlpha": 1,
+        "bulletColor": layoutColors.defaultText,
+        "bulletSize": 5,
+        "hideBulletsCount": 50,
+        "lineThickness": 2,
+        "lineColor": layoutColors.primaryLight,
+        "type": "smoothedLine",
+        "dashLength": 0.5,
+        "title": "Простои прогноз",
+        "useLineColorForBulletBorder": true,
+        "valueField": "loss2",
         "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
       },
 
