@@ -689,6 +689,51 @@
       return selected.length ? selected[0].text : 'Not set';
     };
 
+    $scope.button_first = function () {
+        var result = [];
+        $rootScope.main_chart.graphs[0].hidden = false;
+        var data = $rootScope.chart_data;
+        for (var x in data['train']['date']) {
+            var obj = {};
+            obj["date"] = data['train']['date'][x];
+            obj["market1"] = data['train']['fluid'][x];
+            result.push(obj);
+        }
+        $rootScope.main_chart.categoryAxis.parseDates = true;
+        $rootScope.main_chart.dataProvider = result;
+        $rootScope.main_chart.validateData();
+    }
+
+    $scope.button_second = function () {
+        $rootScope.main_chart.dataProvider = [];
+        var result = [];
+        $rootScope.main_chart.graphs[0].hidden = false;
+        var data = $rootScope.chart_data;
+        for (var x in data['train']['date']) {
+            var obj = {};
+            obj["date"] = data['train']['date'][x];
+            obj["sales1"] = data['train']['oilloss'][x];
+            obj["oil1"] = data['train']['remont'][x];
+            result.push(obj);
+        }
+        $rootScope.main_chart.categoryAxis.parseDates = true;
+        $rootScope.main_chart.dataProvider = result;
+
+        for (var x in $rootScope.chart_data['valid']['date']) {
+            var obj = {};
+            obj["date"] = $rootScope.chart_data['valid']['date'][x];
+            // obj["market2"] = $rootScope.chart_data['valid']['fluid'][x];
+            obj["sales2"] = $rootScope.chart_data['forecast']['oilloss'][x];
+            obj["oil2"] = $rootScope.chart_data['forecast']['remont'][x];
+            $rootScope.main_chart["dataProvider"].push(obj);
+                    
+        }
+
+
+
+        $rootScope.main_chart.validateData();
+    }
+
 
     $scope.button_prognoz = function() {
         for (var x in $rootScope.chart_data['valid']['date']) {
@@ -699,6 +744,7 @@
             $rootScope.main_chart["dataProvider"].push(obj);
                     
         }
+        $rootScope.main_chart.categoryAxis.parseDates = true;
         $rootScope.main_chart.validateData();
     }
     $scope.button_fakt = function() {
@@ -708,9 +754,8 @@
             obj["market2"] = $rootScope.chart_data['valid']['fluid'][x];
             // obj["market3"] = $rootScope.chart_data['forecast']['fluid'][x];
             $rootScope.main_chart["dataProvider"].push(obj);
-                    
         }
-        // $rootScope.main_chart.graphs[0].type = 'column';
+        $rootScope.main_chart.categoryAxis.parseDates = true;
         $rootScope.main_chart.validateData();
     }
     $scope.button_nasos = function() {
