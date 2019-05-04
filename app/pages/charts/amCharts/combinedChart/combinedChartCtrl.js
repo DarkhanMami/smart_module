@@ -252,6 +252,9 @@
         "color": layoutColors.defaultText,
         "gridColor": layoutColors.defaultText,
         "parseDates": true,
+        "minPeriod": "DD",
+        // "groupToPeriods": "MM",
+        // "periodValue": "SUM",
         "dashLength": 1,
         "minorGridEnabled": true
       },
@@ -276,16 +279,9 @@
             for (var x in data['train']['date']) {
                 var obj = {};
                 obj["date"] = data['train']['date'][x];
-                obj["market1"] = data['train']['fluid'][x];
+                obj["market1"] = data['train']['oilloss'][x];
                 result.push(obj);
             }
-            // for (var x in data['valid']['date']) {
-            //     var obj = {};
-            //     obj["date"] = data['valid']['date'][x];
-            //     obj["market2"] = data['valid']['fluid'][x];
-            //     obj["market3"] = data['forecast']['fluid'][x];
-            //     result.push(obj);
-            // }
             chart["dataProvider"] = result;
             chart.validateData();
             $rootScope.main_chart = chart;
