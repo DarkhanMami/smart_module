@@ -693,10 +693,10 @@
         var result = [];
         $rootScope.main_chart.graphs[0].hidden = false;
         var data = $rootScope.chart_data;
-        for (var x in data['train']['date']) {
+        for (var x in data['month']['train']['date']) {
             var obj = {};
-            obj["date"] = data['train']['date'][x];
-            obj["market1"] = data['train']['fluid'][x];
+            obj["date"] = data['month']['train']['date'][x];
+            obj["sales1"] = data['month']['train']['oilloss'][x];
             result.push(obj);
         }
         $rootScope.main_chart.categoryAxis.parseDates = true;
@@ -709,19 +709,20 @@
         var result = [];
         $rootScope.main_chart.graphs[0].hidden = false;
         var data = $rootScope.chart_data;
-        for (var x in data['train']['date']) {
+        for (var x in data['month']['train']['date']) {
             var obj = {};
-            obj["date"] = data['train']['date'][x];
-            obj["oil1"] = data['train']['oilloss'][x];
+            obj["date"] = data['month']['train']['date'][x];
+            obj["sales1"] = data['month']['train']['oilloss'][x];
             result.push(obj);
         }
-        $rootScope.main_chart.categoryAxis.parseDates = true;
+        // $rootScope.main_chart.categoryAxis.parseDates = true;
         $rootScope.main_chart.dataProvider = result;
 
-        for (var x in $rootScope.chart_data['valid']['date']) {
+        for (var x in $rootScope.chart_data['month']['valid']['date']) {
             var obj = {};
-            obj["date"] = $rootScope.chart_data['valid']['date'][x];
-            obj["oil2"] = $rootScope.chart_data['forecast']['oilloss'][x];
+            obj["date"] = $rootScope.chart_data['month']['valid']['date'][x];
+            obj["sales2"] = $rootScope.chart_data['month']['forecast']['oilloss'][x];
+            obj["sales3"] = $rootScope.chart_data['month']['valid']['oilloss'][x];
             $rootScope.main_chart["dataProvider"].push(obj);
                     
         }

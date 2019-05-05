@@ -115,23 +115,22 @@
        {
         "id": "g4",
         color: layoutColors.defaultText,
-        "valueAxis": "v2",
+        "valueAxis": "v4",
         "dataDateFormat": "YYYY-MM",
-        "lineColor": layoutColors.primaryLight,
-        "fillColors": layoutColors.primaryLight,
+        "lineColor": layoutColors.successLight,
+        "fillColors": layoutColors.successLight,
         "fillAlphas": 0.8,
         "lineAlpha": 0.8,
         "type": "column",
         "title": "Добыча жидкости 2018",
         "valueField": "sales2",
         "clustered": true,
-        "columnWidth": 0.5,
-        "lineColorField" : layoutColors.defaultText,
-        "legendValueText": "$[[value]]M",
-        "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]M</b>"
+        "columnWidth": 1,
+        "legendValueText": "[[value]] тон",
+        "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]тон</b>"
       }, {
         "id": "g5",
-        "valueAxis": "v2",
+        "valueAxis": "v4",
         "dataDateFormat": "YYYY-MM",
         color: layoutColors.defaultText,
         "lineColor": layoutColors.primary,
@@ -142,9 +141,27 @@
         "title": "Добыча жидкости 2019",
         "valueField": "sales1",
         "clustered": true,
-        "columnWidth": 0.5,
-        "legendValueText": "$[[value]]M",
-        "balloonText": "[[title]]<br/><b style='font-size: 130%'>$[[value]]M</b>"
+        "columnWidth": 1,
+        "legendValueText": "[[value]] тон",
+        "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]тон</b>"
+      }, {
+        "id": "g10",
+        "valueAxis": "v4",
+        "dataDateFormat": "YYYY-MM",
+        color: layoutColors.defaultText,
+        "bullet": "round",
+        "bulletBorderAlpha": 1,
+        "bulletColor": layoutColors.defaultText,
+        "bulletSize": 5,
+        "hideBulletsCount": 50,
+        "lineThickness": 2,
+        "lineColor": layoutColors.danger,
+        "type": "smoothedLine",
+        "dashLength": 1.5,
+        "title": "Потери факт",
+        "useLineColorForBulletBorder": true,
+        "valueField": "sales3",
+        "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
       },
       {
         "id": "g6",
@@ -252,9 +269,8 @@
         "color": layoutColors.defaultText,
         "gridColor": layoutColors.defaultText,
         "parseDates": true,
-        "minPeriod": "DD",
-        // "groupToPeriods": "MM",
-        // "periodValue": "SUM",
+        "minPeriod": "MM",
+        "groupToPeriods": "MM",
         "dashLength": 1,
         "minorGridEnabled": true
       },
@@ -276,10 +292,10 @@
     $http.get("data/data.json")
         .success(function (data) {
             var result = [];
-            for (var x in data['train']['date']) {
+            for (var x in data['month']['train']['date']) {
                 var obj = {};
-                obj["date"] = data['train']['date'][x];
-                obj["market1"] = data['train']['oilloss'][x];
+                obj["date"] = data['month']['train']['date'][x];
+                obj["sales1"] = data['month']['train']['oilloss'][x];
                 result.push(obj);
             }
             chart["dataProvider"] = result;
