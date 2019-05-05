@@ -12,6 +12,14 @@
   function combinedChartCtrl($element, baConfig, layoutPaths, $http, $rootScope) {
     var layoutColors = baConfig.colors;
     var id = $element[0].getAttribute('id');
+    function handleLegendClick( graph ) {
+        var chart = graph.chart;
+        if (graph.hidden) {
+            chart.showGraph(graph);
+        } else{
+            chart.hideGraph(graph);
+        }
+    }
     var chart = AmCharts.makeChart(id, {
       "type": "serial",
       "theme": "none",
@@ -57,61 +65,61 @@
         "autoGridCount": false
       }],
       "graphs": [
-      {
-        "id": "g1",
-        "valueAxis": "v1",
-        "dataDateFormat": "YYYY-MM-DD",
-        "bullet": "round",
-        "bulletBorderAlpha": 1,
-        "bulletColor": layoutColors.defaultText,
-        color: layoutColors.defaultText,
-        "bulletSize": 5,
-        "hideBulletsCount": 50,
-        "lineThickness": 2,
-        "lineColor": layoutColors.primary,
-        "type": "smoothedLine",
-        "dashLength": 0.1,
-        "title": "Исторические данные по добыче",
-        "useLineColorForBulletBorder": true,
-        "valueField": "market1",
-        "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
-      }, {
-        "id": "g2",
-        "valueAxis": "v1",
-        "dataDateFormat": "YYYY-MM-DD",
-        color: layoutColors.defaultText,
-        "bullet": "round",
-        "bulletBorderAlpha": 1,
-        "bulletColor": layoutColors.defaultText,
-        "bulletSize": 5,
-        "hideBulletsCount": 50,
-        "lineThickness": 2,
-        "lineColor": layoutColors.danger,
-        "type": "smoothedLine",
-        "dashLength": 1.5,
-        "title": "Факт ГТМ",
-        "useLineColorForBulletBorder": true,
-        "valueField": "market2",
-        "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
-      }, {
-        "id": "g3",
-        "valueAxis": "v1",
-        "dataDateFormat": "YYYY-MM-DD",
-        color: layoutColors.defaultText,
-        "bullet": "round",
-        "bulletBorderAlpha": 1,
-        "bulletColor": layoutColors.defaultText,
-        "bulletSize": 5,
-        "hideBulletsCount": 50,
-        "lineThickness": 2,
-        "lineColor": layoutColors.success,
-        "type": "smoothedLine",
-        "dashLength": 0.5,
-        "title": "Прогноз ГТМ",
-        "useLineColorForBulletBorder": true,
-        "valueField": "market3",
-        "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
-      },
+      // {
+      //   "id": "g1",
+      //   "valueAxis": "v1",
+      //   "dataDateFormat": "YYYY-MM-DD",
+      //   "bullet": "round",
+      //   "bulletBorderAlpha": 1,
+      //   "bulletColor": layoutColors.defaultText,
+      //   color: layoutColors.defaultText,
+      //   "bulletSize": 5,
+      //   "hideBulletsCount": 50,
+      //   "lineThickness": 2,
+      //   "lineColor": layoutColors.primary,
+      //   "type": "smoothedLine",
+      //   "dashLength": 0.1,
+      //   "title": "Исторические данные по добыче",
+      //   "useLineColorForBulletBorder": true,
+      //   "valueField": "market1",
+      //   "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
+      // }, {
+      //   "id": "g2",
+      //   "valueAxis": "v1",
+      //   "dataDateFormat": "YYYY-MM-DD",
+      //   color: layoutColors.defaultText,
+      //   "bullet": "round",
+      //   "bulletBorderAlpha": 1,
+      //   "bulletColor": layoutColors.defaultText,
+      //   "bulletSize": 5,
+      //   "hideBulletsCount": 50,
+      //   "lineThickness": 2,
+      //   "lineColor": layoutColors.danger,
+      //   "type": "smoothedLine",
+      //   "dashLength": 1.5,
+      //   "title": "Факт ГТМ",
+      //   "useLineColorForBulletBorder": true,
+      //   "valueField": "market2",
+      //   "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
+      // }, {
+      //   "id": "g3",
+      //   "valueAxis": "v1",
+      //   "dataDateFormat": "YYYY-MM-DD",
+      //   color: layoutColors.defaultText,
+      //   "bullet": "round",
+      //   "bulletBorderAlpha": 1,
+      //   "bulletColor": layoutColors.defaultText,
+      //   "bulletSize": 5,
+      //   "hideBulletsCount": 50,
+      //   "lineThickness": 2,
+      //   "lineColor": layoutColors.success,
+      //   "type": "smoothedLine",
+      //   "dashLength": 0.5,
+      //   "title": "Прогноз ГТМ",
+      //   "useLineColorForBulletBorder": true,
+      //   "valueField": "market3",
+      //   "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
+      // },
        {
         "id": "g4",
         color: layoutColors.defaultText,
@@ -163,25 +171,26 @@
         "valueField": "sales3",
         "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
       },
+      // {
+      //   "id": "g6",
+      //   "valueAxis": "v4",
+      //   "dataDateFormat": "YYYY-MM",
+      //   color: layoutColors.defaultText,
+      //   "bullet": "round",
+      //   "bulletBorderAlpha": 1,
+      //   "bulletColor": layoutColors.defaultText,
+      //   "bulletSize": 5,
+      //   "hideBulletsCount": 50,
+      //   "lineThickness": 2,
+      //   "lineColor": layoutColors.primaryLight,
+      //   "type": "smoothedLine",
+      //   "dashLength": 1.5,
+      //   "title": "Потери факт",
+      //   "useLineColorForBulletBorder": true,
+      //   "valueField": "oil1",
+      //   "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
+      // }, 
       {
-        "id": "g6",
-        "valueAxis": "v4",
-        "dataDateFormat": "YYYY-MM",
-        color: layoutColors.defaultText,
-        "bullet": "round",
-        "bulletBorderAlpha": 1,
-        "bulletColor": layoutColors.defaultText,
-        "bulletSize": 5,
-        "hideBulletsCount": 50,
-        "lineThickness": 2,
-        "lineColor": layoutColors.primaryLight,
-        "type": "smoothedLine",
-        "dashLength": 1.5,
-        "title": "Потери факт",
-        "useLineColorForBulletBorder": true,
-        "valueField": "oil1",
-        "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
-      }, {
         "id": "g7",
         "valueAxis": "v4",
         "dataDateFormat": "YYYY-MM",
@@ -277,7 +286,9 @@
       "legend": {
         "useGraphSettings": true,
         "position": "top",
-        "color": layoutColors.defaultText
+        "color": layoutColors.defaultText,
+        "clickMarker": handleLegendClick,
+        "clickLabel": handleLegendClick
       },
       "balloon": {
         "borderThickness": 1,

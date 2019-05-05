@@ -12,34 +12,34 @@
   function MsgCenterCtrl($scope, $sce) {
     $scope.users = {
       0: {
-        name: 'Vlad',
+        name: 'Кайрат Кайратович',
       },
       1: {
-        name: 'Kostya',
+        name: 'Гамзат Кайратович',
       },
       2: {
-        name: 'Andrey',
+        name: 'Алия Кайратовна',
       },
       3: {
-        name: 'Nasta',
+        name: 'Бекарслан Кайратович',
       }
     };
 
     $scope.notifications = [
       {
         userId: 0,
-        template: '&name posted a new article.',
-        time: '1 min ago'
+        template: 'заявка на проведение ГТМ.',
+        time: '1 мин назад'
       },
       {
         userId: 1,
-        template: '&name changed his contact information.',
-        time: '2 hrs ago'
+        template: 'Изменил контактные данные.',
+        time: '2 часа назад'
       },
       {
         image: 'assets/img/shopping-cart.svg',
-        template: 'New orders received.',
-        time: '5 hrs ago'
+        template: 'Получена новая заявка на закуп.',
+        time: '5 часов назад'
       },
       {
         userId: 2,
