@@ -9,7 +9,37 @@
       .controller('SmartPageCtrl', SmartPageCtrl);
 
   /** @ngInject */
-  function SmartPageCtrl($scope, $rootScope, $filter, editableOptions, editableThemes) {
+  function SmartPageCtrl($scope, $rootScope, $filter, editableOptions, editableThemes, $http) {
+    $scope.remont_types = [];
+    $scope.selectedRowTable = null;
+    $http.get("data/data.json")
+        .success(function (data) {
+            // var result = [];
+            // for (var x in data['month']['train']['date']) {
+            //     var obj = {};
+            //     obj["date"] = data['month']['train']['date'][x];
+            //     obj["sales1"] = data['month']['train']['oilloss'][x];
+            //     result.push(obj);
+            // }
+            // chart["dataProvider"] = result;
+            // chart.validateData();
+            // $rootScope.main_chart = chart;
+            // $rootScope.chart_data = data;
+            // $scope.remont_types = [];
+            var result = [];
+            for (var rem in data['stats']) {
+                var obj = {};
+                obj['name'] = data['stats'][rem][0];
+                obj['prostoi'] = data['stats'][rem][1];
+                obj['poteri'] = data['stats'][rem][2];
+                result.push(obj);
+            }
+            $scope.remont_types = result;
+            $scope.rem_types = result;
+        })
+        .error(function (data) {
+            console.log("there was an error");
+        });
 
     $scope.smartTablePageSize = 10;
 
@@ -853,6 +883,10 @@
             }];
         $rootScope.main_chart.categoryAxis.parseDates = false;
         $rootScope.main_chart.validateData();
+    }
+
+    $scope.changeRemontType = function(rem_type, index) {
+        $scope.selectedRowTable = index;
     }
 
 

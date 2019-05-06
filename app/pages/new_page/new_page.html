@@ -52,10 +52,8 @@
         Общее <span class="caret"></span>
       </button>
       <ul uib-dropdown-menu>
-        <li><a href>Дни</a></li>
-        <li><a href>Недели</a></li>
-        <li><a href>Месяц</a></li>
-        <li><a href>Год</a></li>
+        <li><a href>Посуточно</a></li>
+        <li><a href>Помесячно</a></li>
         <li role="separator" class="divider"></li>
         <!-- <li><a href>Separated link</a></li> -->
       </ul>
@@ -82,15 +80,14 @@
     <!--</div>-->
     <!--</div>-->
   </div>
-
   <div class="row">
     <div class="col-md-6">
-      <div ba-panel ba-panel-title="Информация эффективности проводимых ГТМ, в разрезе месторождении и скважин" ba-panel-class="with-scroll">
-        <div include-with-scope="app/pages/new_page/smartTable.html"></div>
+      <div ba-panel ba-panel-title="Виды ГТМ" ba-panel-class="with-scroll">
+        <div include-with-scope="app/pages/new_page/remont_types.html"></div>
       </div>
     </div>
     <div class="col-md-6">
-      <div ba-panel ba-panel-title="Виды ГТМ" ba-panel-class="with-scroll">
+      <div ba-panel ba-panel-title="Информация эффективности проводимых ГТМ, в разрезе месторождении и скважин" ba-panel-class="with-scroll">
         <div include-with-scope="app/pages/new_page/smartTable.html"></div>
       </div>
     </div>

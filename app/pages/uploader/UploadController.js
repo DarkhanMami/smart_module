@@ -1,6 +1,5 @@
 
 var UploadController = function ($scope, fileReader) {
-     console.log(fileReader)
     $scope.getFile = function () {
         $scope.progress = 0;
         fileReader.readAsDataUrl($scope.file, $scope)

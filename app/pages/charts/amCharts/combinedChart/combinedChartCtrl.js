@@ -23,6 +23,7 @@
     var chart = AmCharts.makeChart(id, {
       "type": "serial",
       "theme": "none",
+      "language": "ru",
       "color": layoutColors.defaultText,
       "precision": 2,
       "valueAxes": [{

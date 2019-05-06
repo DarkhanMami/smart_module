@@ -1,0 +1,40 @@
+<div class="horizontal-scroll">
+  <div class="form-group select-page-size-wrap ">
+    <label>Количество строк
+      <select class="form-control selectpicker show-tick" title="Количество строк" selectpicker
+              ng-model="smartTablePageSize" ng-options="i for i in [5,10,15,20,25]">
+      </select>
+    </label>
+  </div>
+  <table class="table table-striped" st-safe-src="rem_types" st-table="remont_types">
+    <thead>
+    <tr class="sortable ">
+      <th st-sort="name">Вид ремонта</th>
+      <th st-sort="prostoi">Простои (дни)</th>
+      <th st-sort="poteri" st-sort-default="reverse">Потери нефти (тонны)</th>
+    </tr>
+    <tr>
+      <th><input st-search="name" placeholder="Поиск ГТМ" class="input-sm form-control search-input"
+                 type="search"/></th>
+      <th><input st-search="prostoi" placeholder="Поиск ..." class="input-sm form-control search-input" type="search"/>
+      </th>
+      <th><input st-search="poteri" placeholder="Поиск ..." class="input-sm form-control search-input" type="search"/>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in remont_types"  ng-click="changeRemontType(item.name, $index)" ng-class="{'selected':$index == selectedRowTable}">
+      <td ng-click="changeRemontType(item.name, $index)" ng-class="{'selected':$index == selectedRowTable}" style="text-align:left;">{{item.name}}</td>
+      <td ng-click="changeRemontType(item.name, $index)" ng-class="{'selected':$index == selectedRowTable}">{{item.prostoi}}</td>
+      <td ng-click="changeRemontType(item.name, $index)" ng-class="{'selected':$index == selectedRowTable}">{{item.poteri|number:2}}</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="6" class="text-center">
+        <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+</div>
