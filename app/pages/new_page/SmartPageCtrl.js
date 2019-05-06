@@ -12,6 +12,7 @@
   function SmartPageCtrl($scope, $rootScope, $filter, editableOptions, editableThemes, $http) {
     $scope.remont_types = [];
     $scope.selectedRowTable = null;
+    $scope.byMonth = true;
     $http.get("data/data.json")
         .success(function (data) {
             // var result = [];
@@ -887,6 +888,9 @@
 
     $scope.changeRemontType = function(rem_type, index) {
         $scope.selectedRowTable = index;
+    }
+    $scope.changeDataType = function(byMonth){
+        $scope.byMonth = !byMonth;
     }
 
 

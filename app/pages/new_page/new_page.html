@@ -49,12 +49,13 @@
 
       <div class="btn-group" uib-dropdown dropdown-append-to-body style="right: 20px; margin-top: -54px; position: absolute;">
       <button type="button" class="btn btn-primary " uib-dropdown-toggle>
-        Общее <span class="caret"></span>
+        <div ng-if="byMonth">Помесячно <span class="caret"></span></div>
+        <div ng-if="!byMonth">Посуточно <span class="caret"></span></div>
       </button>
       <ul uib-dropdown-menu>
-        <li><a href>Посуточно</a></li>
-        <li><a href>Помесячно</a></li>
-        <li role="separator" class="divider"></li>
+        <li><a ng-click="changeDataType(byMonth)">Помесячно</a></li>
+        <li><a ng-click="changeDataType(byMonth)">Посуточно</a></li>
+        <!-- <li role="separator" class="divider"></li> -->
         <!-- <li><a href>Separated link</a></li> -->
       </ul>
       </div>
