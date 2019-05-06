@@ -53,8 +53,8 @@
         <div ng-if="!byMonth">Посуточно <span class="caret"></span></div>
       </button>
       <ul uib-dropdown-menu>
-        <li><a ng-click="changeDataType(byMonth)">Помесячно</a></li>
-        <li><a ng-click="changeDataType(byMonth)">Посуточно</a></li>
+        <li ng-if="!byMonth"><a ng-click="changeDataType(byMonth)">Помесячно</a></li>
+        <li ng-if="byMonth"><a ng-click="changeDataType(byMonth)">Посуточно</a></li>
         <!-- <li role="separator" class="divider"></li> -->
         <!-- <li><a href>Separated link</a></li> -->
       </ul>

@@ -11,7 +11,7 @@
   /** @ngInject */
   function SmartPageCtrl($scope, $rootScope, $filter, editableOptions, editableThemes, $http) {
     $scope.remont_types = [];
-    $scope.selectedRowTable = null;
+    $scope.selectedRowTable = 0;
     $scope.byMonth = true;
     $http.get("data/data.json")
         .success(function (data) {
@@ -721,46 +721,81 @@
     };
 
     $scope.button_first = function () {
-        var result = [];
-        $rootScope.main_chart.graphs[0].hidden = false;
-        var data = $rootScope.chart_data;
-        for (var x in data['month']['train']['date']) {
-            var obj = {};
-            obj["date"] = data['month']['train']['date'][x];
-            obj["sales1"] = data['month']['train']['oilloss'][x];
-            result.push(obj);
+        if ($scope.byMonth){
+            var result = [];
+            $rootScope.main_chart.graphs[0].hidden = false;
+            var data = $rootScope.chart_data;
+            for (var x in data['month']['train']['date']) {
+                var obj = {};
+                obj["date"] = data['month']['train']['date'][x];
+                obj["sales1"] = data['month']['train']['oilloss'][x];
+                result.push(obj);
+            }
+            $rootScope.main_chart.categoryAxis.minPeriod = "MM";
+            $rootScope.main_chart.categoryAxis.parseDates = true;
+            $rootScope.main_chart.dataProvider = result;
+            $rootScope.main_chart.validateData();
+        } else {
+            var result = [];
+            $rootScope.main_chart.graphs[0].hidden = false;
+            var data = $rootScope.chart_data;
+            for (var x in data['train']['date']) {
+                var obj = {};
+                obj["date"] = data['train']['date'][x];
+                obj["sales1"] = data['train']['oilloss'][x];
+                result.push(obj);
+            }
+            $rootScope.main_chart.categoryAxis.minPeriod = "DD";
+            $rootScope.main_chart.categoryAxis.parseDates = true;
+            $rootScope.main_chart.dataProvider = result;
+            $rootScope.main_chart.validateData();
         }
-        $rootScope.main_chart.categoryAxis.parseDates = true;
-        $rootScope.main_chart.dataProvider = result;
-        $rootScope.main_chart.validateData();
     }
 
     $scope.button_second = function () {
-        $rootScope.main_chart.dataProvider = [];
-        var result = [];
-        $rootScope.main_chart.graphs[0].hidden = false;
-        var data = $rootScope.chart_data;
-        for (var x in data['month']['train']['date']) {
-            var obj = {};
-            obj["date"] = data['month']['train']['date'][x];
-            obj["sales1"] = data['month']['train']['oilloss'][x];
-            result.push(obj);
+        if ($scope.byMonth){
+            var result = [];
+            $rootScope.main_chart.graphs[0].hidden = false;
+            var data = $rootScope.chart_data;
+            for (var x in data['month']['train']['date']) {
+                var obj = {};
+                obj["date"] = data['month']['train']['date'][x];
+                obj["sales1"] = data['month']['train']['oilloss'][x];
+                result.push(obj);
+            }
+            $rootScope.main_chart.dataProvider = result;
+            for (var x in $rootScope.chart_data['month']['valid']['date']) {
+                var obj = {};
+                obj["date"] = $rootScope.chart_data['month']['valid']['date'][x];
+                obj["sales2"] = $rootScope.chart_data['month']['forecast']['oilloss'][x];
+                obj["sales3"] = $rootScope.chart_data['month']['valid']['oilloss'][x];
+                $rootScope.main_chart["dataProvider"].push(obj);
+                        
+            }
+            $rootScope.main_chart.validateData();
+        } else {
+            var result = [];
+            $rootScope.main_chart.graphs[0].hidden = false;
+            var data = $rootScope.chart_data;
+            for (var x in data['train']['date']) {
+                var obj = {};
+                obj["date"] = data['train']['date'][x];
+                obj["sales1"] = data['train']['oilloss'][x];
+                result.push(obj);
+            }
+            $rootScope.main_chart.dataProvider = result;
+            for (var x in $rootScope.chart_data['valid']['date']) {
+                var obj = {};
+                obj["date"] = $rootScope.chart_data['valid']['date'][x];
+                obj["sales2"] = $rootScope.chart_data['forecast']['oilloss'][x];
+                obj["sales3"] = $rootScope.chart_data['valid']['oilloss'][x];
+                $rootScope.main_chart["dataProvider"].push(obj);
+                        
+            }
+            $rootScope.main_chart.validateData();
         }
-        // $rootScope.main_chart.categoryAxis.parseDates = true;
-        $rootScope.main_chart.dataProvider = result;
-
-        for (var x in $rootScope.chart_data['month']['valid']['date']) {
-            var obj = {};
-            obj["date"] = $rootScope.chart_data['month']['valid']['date'][x];
-            obj["sales2"] = $rootScope.chart_data['month']['forecast']['oilloss'][x];
-            obj["sales3"] = $rootScope.chart_data['month']['valid']['oilloss'][x];
-            $rootScope.main_chart["dataProvider"].push(obj);
-                    
-        }
 
 
-
-        $rootScope.main_chart.validateData();
     }
 
     $scope.button_fourth = function () {
