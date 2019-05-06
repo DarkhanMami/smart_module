@@ -28,12 +28,12 @@
     $scope.notifications = [
       {
         userId: 0,
-        template: 'заявка на проведение ГТМ.',
+        template: '&name\ заявка на проведение ГТМ.',
         time: '1 мин назад'
       },
       {
         userId: 1,
-        template: 'Изменил контактные данные.',
+        template: '&name\ изменил контактные данные.',
         time: '2 часа назад'
       },
       {
@@ -43,23 +43,23 @@
       },
       {
         userId: 2,
-        template: '&name replied to your comment.',
-        time: '1 day ago'
+        template: '&name\ получен ответ на комментарий.',
+        time: '1 день назад'
       },
       {
         userId: 3,
-        template: 'Today is &name\'s birthday.',
-        time: '2 days ago'
+        template: 'сегодня &name\ день рождение.',
+        time: '2 дня назад'
       },
       {
         image: 'assets/img/comments.svg',
-        template: 'New comments on your post.',
-        time: '3 days ago'
+        template: 'Новые комментарий.',
+        time: '3 дня назад'
       },
       {
         userId: 1,
-        template: '&name invited you to join the event.',
-        time: '1 week ago'
+        template: '&name новая заявка.',
+        time: '1 неделю назад'
       }
     ];
 
@@ -67,37 +67,37 @@
       {
         userId: 3,
         text: 'After you get up and running, you can place Font Awesome icons just about...',
-        time: '1 min ago'
+        time: '1 минуту назад'
       },
       {
         userId: 0,
         text: 'You asked, Font Awesome delivers with 40 shiny new icons in version 4.2.',
-        time: '2 hrs ago'
+        time: '2 часа назад'
       },
       {
         userId: 1,
         text: 'Want to request new icons? Here\'s how. Need vectors or want to use on the...',
-        time: '10 hrs ago'
+        time: '10 часов назад'
       },
       {
         userId: 2,
         text: 'Explore your passions and discover new ones by getting involved. Stretch your...',
-        time: '1 day ago'
+        time: '1 день назад'
       },
       {
         userId: 3,
         text: 'Get to know who we are - from the inside out. From our history and culture, to the...',
-        time: '1 day ago'
+        time: '1 день назад'
       },
       {
         userId: 1,
         text: 'Need some support to reach your goals? Apply for scholarships across a variety of...',
-        time: '2 days ago'
+        time: '2 дня назад'
       },
       {
         userId: 0,
         text: 'Wrap the dropdown\'s trigger and the dropdown menu within .dropdown, or...',
-        time: '1 week ago'
+        time: '1 неделю назад'
       }
     ];
 

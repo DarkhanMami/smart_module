@@ -1,18 +1,18 @@
 <div ba-panel ba-panel-class="profile-page">
   <div class="panel-content">
-    <div class="progress-info">Your profile is 70% Complete</div>
+    <div class="progress-info">Профиль заполнен на 70%</div>
     <div class="progress">
       <div class="progress-bar progress-bar-primary progress-bar-striped active" role="progressbar"
            aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
       </div>
     </div>
 
-    <h3 class="with-line">General Information</h3>
+    <h3 class="with-line">Основная информация</h3>
 
     <div class="row">
       <div class="col-md-6">
         <div class="form-group row clearfix">
-          <label for="inputFirstName" class="col-sm-3 control-label">Picture</label>
+          <label for="inputFirstName" class="col-sm-3 control-label">Фото профиля</label>
 
           <div class="col-sm-9">
             <div class="userpic">
@@ -20,7 +20,7 @@
                 <img ng-src="{{ picture }}" ng-click="uploadPicture()">
               </div>
               <i class="ion-ios-close-outline" ng-click="removePicture()" ng-if="!noPicture"></i>
-              <a href class="change-userpic" ng-click="uploadPicture()">Change Profile Picture</a>
+              <a href class="change-userpic" ng-click="uploadPicture()">Изменить фото</a>
               <input type="file" ng-show="false" id="uploadFile" ng-file-select="onFileSelect($files)">
             </div>
           </div>
@@ -32,14 +32,14 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form-group row clearfix">
-          <label for="inputFirstName" class="col-sm-3 control-label">First Name</label>
+          <label for="inputFirstName" class="col-sm-3 control-label">Фамилия</label>
 
           <div class="col-sm-9">
             <input type="text" class="form-control" id="inputFirstName" placeholder="" value="Anastasiya">
           </div>
         </div>
         <div class="form-group row clearfix">
-          <label for="inputLastName" class="col-sm-3 control-label">Last Name</label>
+          <label for="inputLastName" class="col-sm-3 control-label">Имя</label>
 
           <div class="col-sm-9">
             <input type="text" class="form-control" id="inputLastName" placeholder="" value="">
@@ -48,34 +48,34 @@
       </div>
       <div class="col-md-6">
         <div class="form-group row clearfix">
-          <label class="col-sm-3 control-label">Department</label>
+          <label class="col-sm-3 control-label">Департамент(ЦО)</label>
 
           <div class="col-sm-9">
             <select class="form-control" selectpicker>
-              <option>Web Development</option>
-              <option>System Development</option>
-              <option>Sales</option>
-              <option>Human Resources</option>
+              <option>ДАПИТ</option>
+              <option>ДАиИТС</option>
+              <option>ДЗиМТС</option>
+              <option>ДБРиКРС</option>
             </select>
           </div>
         </div>
 
         <div class="form-group row clearfix">
-          <label for="inputOccupation" class="col-sm-3 control-label">Occupation</label>
+          <label for="inputOccupation" class="col-sm-3 control-label">Должность</label>
 
           <div class="col-sm-9">
-            <input type="text" class="form-control" id="inputOccupation" placeholder="" value="Front End Web Developer">
+            <input type="text" class="form-control" id="inputOccupation" placeholder="" value="Экономист">
           </div>
         </div>
       </div>
     </div>
 
-    <h3 class="with-line">Change Password</h3>
+    <h3 class="with-line">Изменить пароль</h3>
 
     <div class="row">
       <div class="col-md-6">
         <div class="form-group row clearfix">
-          <label for="inputPassword" class="col-sm-3 control-label">Password</label>
+          <label for="inputPassword" class="col-sm-3 control-label">Пароль</label>
 
           <div class="col-sm-9">
             <input type="password" class="form-control" id="inputPassword" placeholder="" value="12345678">
@@ -84,7 +84,7 @@
       </div>
       <div class="col-md-6">
         <div class="form-group row clearfix">
-          <label for="inputConfirmPassword" class="col-sm-3 control-label">Confirm Password</label>
+          <label for="inputConfirmPassword" class="col-sm-3 control-label">Подтвердить пароль</label>
 
           <div class="col-sm-9">
             <input type="password" class="form-control" id="inputConfirmPassword" placeholder="">
@@ -93,40 +93,40 @@
       </div>
     </div>
 
-    <h3 class="with-line">Contact Information</h3>
+    <h3 class="with-line">Контакные данные</h3>
 
     <div class="row">
       <div class="col-md-6">
         <div class="form-group row clearfix">
-          <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
+          <label for="inputEmail3" class="col-sm-3 control-label">Почта</label>
 
           <div class="col-sm-9">
-            <input type="email" class="form-control" id="inputEmail3" placeholder="" value="contact@akveo.com">
+            <input type="email" class="form-control" id="inputEmail3" placeholder="" value="contact@emg.kz">
           </div>
         </div>
         <div class="form-group row clearfix">
-          <label for="inputPhone" class="col-sm-3 control-label">Phone</label>
+          <label for="inputPhone" class="col-sm-3 control-label">Телефон</label>
 
           <div class="col-sm-9">
-            <input type="text" class="form-control" id="inputPhone" placeholder="" value="+1 (23) 456 7890">
+            <input type="text" class="form-control" id="inputPhone" placeholder="" value="+7 (523) 456 7890">
           </div>
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group row clearfix">
-          <label class="col-sm-3 control-label">Office Location</label>
+          <label class="col-sm-3 control-label">Местонахождение департамента(отдела)</label>
 
           <div class="col-sm-9">
-            <select class="form-control" title="Standard Select" selectpicker>
-              <option>San Francisco</option>
-              <option>London</option>
-              <option>Minsk</option>
-              <option>Tokio</option>
+            <select class="form-control" title="Выбрать" selectpicker>
+              <option>ПУ "ЖайыкМунайГаз"</option>
+              <option>ПУ "ЖылыойМунайГаз"</option>
+              <option>ПУ "КайнарМунайгаз"</option>
+              <option>ПУ "ДоссорМунайгаз"</option>
             </select>
           </div>
         </div>
         <div class="form-group row clearfix">
-          <label for="inputRoom" class="col-sm-3 control-label">Room</label>
+          <label for="inputRoom" class="col-sm-3 control-label">Кабинет</label>
 
           <div class="col-sm-9">
             <input type="text" class="form-control" id="inputRoom" placeholder="" value="303">
@@ -135,7 +135,7 @@
       </div>
     </div>
 
-    <h3 class="with-line">Social Profiles</h3>
+    <h3 class="with-line">Социальные профили</h3>
 
     <div class="social-profiles row clearfix">
       <div class="col-md-3 col-sm-4" ng-repeat="item in socialProfiles">
@@ -153,7 +153,7 @@
       </div>
     </div>
 
-    <h3 class="with-line">Send Email Notifications</h3>
+    <h3 class="with-line">Отправить уведомление на электронную почту</h3>
 
     <div class="notification row clearfix">
       <div class="col-sm-6">

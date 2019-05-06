@@ -24,9 +24,9 @@
     </thead>
     <tbody>
     <tr ng-repeat="item in remont_types"  ng-click="changeRemontType(item.name, $index)" ng-class="{'selected':$index == selectedRowTable}">
-      <td ng-click="changeRemontType(item.name, $index)" ng-class="{'selected':$index == selectedRowTable}" style="text-align:left;">{{item.name}}</td>
+      <td ng-click="changeRemontType(item.name, $index)" ng-class="{'selected':$index == selectedRowTable}" style="border-bottom-left-radius: 5px; border-top-left-radius: 5px; text-align:left">{{item.name}}</td>
       <td ng-click="changeRemontType(item.name, $index)" ng-class="{'selected':$index == selectedRowTable}">{{item.prostoi}}</td>
-      <td ng-click="changeRemontType(item.name, $index)" ng-class="{'selected':$index == selectedRowTable}">{{item.poteri|number:2}}</td>
+      <td ng-click="changeRemontType(item.name, $index)" ng-class="{'selected':$index == selectedRowTable}" style="border-bottom-right-radius: 5px; border-top-right-radius: 5px">{{item.poteri|number:2}}</td>
     </tr>
     </tbody>
     <tfoot>
