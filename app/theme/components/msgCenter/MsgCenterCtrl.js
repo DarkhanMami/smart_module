@@ -9,7 +9,7 @@
       .controller('MsgCenterCtrl', MsgCenterCtrl);
 
   /** @ngInject */
-  function MsgCenterCtrl($scope, $sce) {
+  function MsgCenterCtrl($scope, $sce, $state, $location) {
     $scope.users = {
       0: {
         name: 'Интелектуальный менеджер',
@@ -100,6 +100,10 @@
         time: '1 неделю назад'
       }
     ];
+
+    $scope.checkNotification = function () {
+        $location.path('components/mail')
+    }
 
     $scope.getMessage = function(msg) {
       var text = msg.template;

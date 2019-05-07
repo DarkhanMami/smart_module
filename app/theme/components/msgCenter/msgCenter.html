@@ -15,7 +15,7 @@
         <a href>Настройки</a>
       </div>
       <div class="msg-list">
-        <a href class="clearfix" ng-repeat="msg in notifications">
+        <a class="clearfix" ng-repeat="msg in notifications" ng-click="checkNotification()">
           <div class="img-area"><img ng-class="{'photo-msg-item' : !msg.image}" ng-src="{{::( msg.image ||  (users[msg.userId].name | profilePicture) )}}"></div>
           <div class="msg-area">
             <div ng-bind-html="getMessage(msg)"></div>
@@ -23,7 +23,7 @@
           </div>
         </a>
       </div>
-      <a href>Смотреть все уведомления</a>
+      <a ng-click="checkNotification()">Смотреть все уведомления</a>
     </div>
   </li>
   <!-- <li uib-dropdown>
