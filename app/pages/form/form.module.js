@@ -15,11 +15,11 @@
           url: '/form',
           template : '<ui-view autoscroll="true" autoscroll-body-top></ui-view>',
           abstract: true,
-          title: 'Отработка',
-          sidebarMeta: {
-            icon: 'ion-compose',
-            order: 250,
-          },
+          // title: 'Отработка',
+          // sidebarMeta: {
+          //   icon: 'ion-compose',
+          //   order: 250,
+          // },
         })
         // .state('form.inputs', {
         //   url: '/inputs',

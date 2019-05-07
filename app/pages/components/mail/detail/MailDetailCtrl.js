@@ -15,7 +15,7 @@
     vm.label = $stateParams.label;
 
     $scope.showSuccessMsg = function() {
-      toastr.success('Your information has been saved successfully!');
+      toastr.success('Уведомление принято в обработку успешно!');
     };
 
     $scope.showInfoMsg = function() {
@@ -23,11 +23,11 @@
     };
 
     $scope.showErrorMsg = function() {
-      toastr.error("Your information hasn't been saved!", 'Error');
+      toastr.error("Уведомление отклонено!", 'Спам');
     };
 
     $scope.showWarningMsg = function() {
-      toastr.warning('Your computer is about to explode!', 'Warning');
+      toastr.warning('Уведомление успешно перемещено в данную категорию.', 'Анализ');
     };
 
 

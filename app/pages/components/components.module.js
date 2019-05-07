@@ -19,11 +19,11 @@
           url: '/components',
           template : '<ui-view  autoscroll="true" autoscroll-body-top></ui-view>',
           abstract: true,
-          title: 'Уведомления',
-          sidebarMeta: {
-            icon: 'ion-gear-a',
-            order: 100,
-          },
+          // title: 'Уведомления',
+          // sidebarMeta: {
+          //   icon: 'ion-gear-a',
+          //   order: 100,
+          // },
         });
   }
 
