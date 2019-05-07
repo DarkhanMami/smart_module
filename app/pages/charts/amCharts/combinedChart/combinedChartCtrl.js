@@ -9,7 +9,7 @@
     .controller('combinedChartCtrl', combinedChartCtrl);
 
   /** @ngInject */
-  function combinedChartCtrl($element, baConfig, layoutPaths, $http, $rootScope) {
+  function combinedChartCtrl($element, baConfig, layoutPaths) {
     var layoutColors = baConfig.colors;
     var id = $element[0].getAttribute('id');
     function handleLegendClick( graph ) {
@@ -300,25 +300,6 @@
       },
       pathToImages: layoutPaths.images.amChart
     });
-    
-    $http.get("data/data.json")
-        .success(function (data) {
-            var result = [];
-            for (var x in data['month']['train']['date']) {
-                var obj = {};
-                obj["date"] = data['month']['train']['date'][x];
-                obj["sales1"] = data['month']['train']['oilloss'][x];
-                result.push(obj);
-            }
-            chart["dataProvider"] = result;
-            chart.validateData();
-            $rootScope.main_chart = chart;
-            $rootScope.chart_data = data;
-        })
-        .error(function (data) {
-            console.log("there was an error");
-        });
-
   }
 
 })();
