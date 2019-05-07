@@ -9,7 +9,7 @@
       .controller('SmartPageCtrl', SmartPageCtrl);
 
   /** @ngInject */
-  function SmartPageCtrl($element, baConfig, layoutPaths, $scope, $filter, editableOptions, editableThemes, $http) {
+  function SmartPageCtrl($element, baConfig, layoutPaths, $scope, $rootScope, $filter, editableOptions, editableThemes, $http) {
     $scope.remont_types = [];
     $scope.selectedRowTable = 0;
     $scope.byMonth = true;
@@ -17,16 +17,15 @@
 
     var layoutColors = baConfig.colors;
     var chart_data = {};
-    var chart_id = $element[0].getAttribute('id');
     function handleLegendClick( graph ) {
-        var chart = graph.chart;
+        var tmp_chart = graph.chart;
         if (graph.hidden) {
-            chart.showGraph(graph);
+            tmp_chart.showGraph(graph);
         } else{
-            chart.hideGraph(graph);
+            tmp_chart.hideGraph(graph);
         }
     }
-    var chart = AmCharts.makeChart(chart_id, {
+    var chart = AmCharts.makeChart("zoomAxisChart", {
       "type": "serial",
       "theme": "none",
       "language": "ru",
@@ -285,8 +284,8 @@
         "color": layoutColors.defaultText,
         "gridColor": layoutColors.defaultText,
         "parseDates": true,
-        "minPeriod": "MM",
-        "groupToPeriods": "MM",
+        "minPeriod": "DD",
+        // "groupToPeriods": "MM",
         "dashLength": 1,
         "minorGridEnabled": true
       },
@@ -306,6 +305,9 @@
       },
       pathToImages: layoutPaths.images.amChart
     });
+    
+    $rootScope.chart = chart;
+    $scope.data = {};
 
     $http.get("data/data.json")
         .success(function (data) {
@@ -320,17 +322,8 @@
             chart_data = data[$scope.rem_type];
             $scope.remont_types = result;
             $scope.rem_types = result;
+            $scope.data = data;
             $scope.button_first();
-
-            // var result = [];
-            // for (var x in data['month']['train']['date']) {
-            //     var obj = {};
-            //     obj["date"] = data['month']['train']['date'][x];
-            //     obj["sales1"] = data['month']['train']['oilloss'][x];
-            //     result.push(obj);
-            // }
-            // chart["dataProvider"] = result;
-            // chart.validateData();
         })
         .error(function (data) {
             console.log("there was an error");
@@ -1015,7 +1008,8 @@
     };
 
     $scope.button_first = function () {
-        if ($scope.byMonth){
+        var chart = $rootScope.chart;
+        if ($scope.byMonth) {
             var result = [];
             chart.graphs[0].hidden = false;
             var data = chart_data;
@@ -1047,46 +1041,45 @@
     }
 
     $scope.button_second = function () {
+        var chart = $rootScope.chart;
         if ($scope.byMonth){
             var result = [];
-            $rootScope.main_chart.graphs[0].hidden = false;
-            var data = $rootScope.chart_data;
+            var data = chart_data;
             for (var x in data['month']['train']['date']) {
                 var obj = {};
                 obj["date"] = data['month']['train']['date'][x];
                 obj["sales1"] = data['month']['train']['oilloss'][x];
                 result.push(obj);
             }
-            $rootScope.main_chart.dataProvider = result;
-            for (var x in $rootScope.chart_data['month']['valid']['date']) {
+            chart.dataProvider = result;
+            for (var x in data['month']['valid']['date']) {
                 var obj = {};
-                obj["date"] = $rootScope.chart_data['month']['valid']['date'][x];
-                obj["sales2"] = $rootScope.chart_data['month']['forecast']['oilloss'][x];
-                obj["sales3"] = $rootScope.chart_data['month']['valid']['oilloss'][x];
-                $rootScope.main_chart["dataProvider"].push(obj);
+                obj["date"] = data['month']['valid']['date'][x];
+                obj["sales2"] = data['month']['forecast']['oilloss'][x];
+                obj["sales3"] = data['month']['valid']['oilloss'][x];
+                chart["dataProvider"].push(obj);
                         
             }
-            $rootScope.main_chart.validateData();
+            chart.validateData();
         } else {
             var result = [];
-            $rootScope.main_chart.graphs[0].hidden = false;
-            var data = $rootScope.chart_data;
+            var data = chart_data;
             for (var x in data['train']['date']) {
                 var obj = {};
                 obj["date"] = data['train']['date'][x];
                 obj["sales1"] = data['train']['oilloss'][x];
                 result.push(obj);
             }
-            $rootScope.main_chart.dataProvider = result;
-            for (var x in $rootScope.chart_data['valid']['date']) {
+            chart.dataProvider = result;
+            for (var x in data['valid']['date']) {
                 var obj = {};
-                obj["date"] = $rootScope.chart_data['valid']['date'][x];
-                obj["sales2"] = $rootScope.chart_data['forecast']['oilloss'][x];
-                obj["sales3"] = $rootScope.chart_data['valid']['oilloss'][x];
-                $rootScope.main_chart["dataProvider"].push(obj);
+                obj["date"] = data['valid']['date'][x];
+                obj["sales2"] = data['forecast']['oilloss'][x];
+                obj["sales3"] = data['valid']['oilloss'][x];
+                chart["dataProvider"].push(obj);
                         
             }
-            $rootScope.main_chart.validateData();
+            chart.validateData();
         }
 
 
@@ -1217,9 +1210,13 @@
 
     $scope.changeRemontType = function(rem_type, index) {
         $scope.selectedRowTable = index;
+        $scope.rem_type = rem_type;
+        chart_data = $scope.data[$scope.rem_type];
+        $scope.button_first();
     }
     $scope.changeDataType = function(byMonth){
         $scope.byMonth = !byMonth;
+        $scope.button_first();
     }
 
 

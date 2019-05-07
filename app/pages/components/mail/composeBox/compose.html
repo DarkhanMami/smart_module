@@ -1,6 +1,6 @@
 <div class="compose-header">
   <span>
-    New message
+    Новое письмо
   </span>
   <span class="header-controls">
     <i class="ion-minus-round"></i>
@@ -9,15 +9,15 @@
   </span>
 </div>
 <div>
-  <input type="text" class="form-control compose-input default-color"  placeholder="To" ng-model="boxCtrl.to">
-  <input type="text" class="form-control compose-input default-color"  placeholder="Subject" ng-model="boxCtrl.subject">
+  <input type="text" class="form-control compose-input default-color"  placeholder="Кому" ng-model="boxCtrl.to">
+  <input type="text" class="form-control compose-input default-color"  placeholder="Тема" ng-model="boxCtrl.subject">
   <div class="compose-container">
     <text-angular-toolbar ta-toolbar-class="toolbarMain" name="toolbarMain" ta-toolbar="[['h1','h2','h3','bold','italics', 'underline', 'justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull']]"></text-angular-toolbar>
     <text-angular name="htmlcontent" ta-target-toolbars='toolbarMain,toolbarFooter' ng-model="boxCtrl.text"></text-angular>
   </div>
 </div>
 <div class="compose-footer clearfix">
-  <button type="button" ng-click="$dismiss()" class="btn btn-send">Send</button>
+  <button type="button" ng-click="$dismiss()" class="btn btn-send">Отправить</button>
   <text-angular-toolbar ta-toolbar-class="toolbarFooter" name="toolbarFooter" ta-toolbar="[['insertLink', 'insertImage', 'html', 'quote','insertVideo']]"></text-angular-toolbar>
   <div class="footer-controls">
     <i class="footer-control-first compose-footer-icon ion-arrow-down-b"></i>
