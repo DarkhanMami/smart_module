@@ -6,24 +6,24 @@
       </select>
     </label>
   </div>
-  <table class="table" st-table="smartTableData">
+  <table class="table table-striped" st-table="smartTableData">
     <thead>
     <tr class="sortable ">
-      <th class="table-id" st-sort="id" st-sort-default="true">#</th>
+      <!-- <th class="table-id" st-sort="id" st-sort-default="true">#</th> -->
       <th st-sort="mestorojdenie">Месторождение</th>
       <th st-sort="skv">Скважина</th>
-      <th st-sort="gtm">ГТМ</th>
+      <!-- <th st-sort="gtm">ГТМ</th> -->
       <th st-sort="email">Вид ремонта</th>
-      <th st-sort="age">Дата проведения ГТМ - Прогноз</th>
+      <th st-sort="age">Дата ГТМ - Прогноз</th>
     </tr>
     <tr>
-      <th></th>
-      <th><input st-search="mestorojdenie" placeholder="Поиск месторождения" class="input-sm form-control search-input"
+      <!-- <th></th> -->
+      <th><input st-search="mestorojdenie" placeholder="Поиск м/р" class="input-sm form-control search-input"
                  type="search"/></th>
-      <th><input st-search="skv" placeholder="Поиск скважины" class="input-sm form-control search-input"
+      <th><input st-search="skv" placeholder="Поиск скв" class="input-sm form-control search-input"
                  type="search"/></th>
-      <th><input st-search="gtm" placeholder="Поиск ГТМ" class="input-sm form-control search-input"
-                 type="search"/></th>
+      <!-- <th><input st-search="gtm" placeholder="Поиск ГТМ" class="input-sm form-control search-input"
+                 type="search"/></th> -->
       <th><input st-search="email" placeholder="Поиск ..." class="input-sm form-control search-input" type="search"/>
       </th>
       <th><input st-search="age" placeholder="Поиск ..." class="input-sm form-control search-input" type="search"/>
@@ -32,10 +32,10 @@
     </thead>
     <tbody>
     <tr ng-repeat="item in smartTableData">
-      <td class="table-id">{{item.id}}</td>
-      <td>{{item.mestorojdenie}}</td>
+      <!-- <td class="table-id">{{item.id}}</td> -->
+      <td style="text-align: left">{{item.mestorojdenie}}</td>
       <td> <a class="email-link" ng-href="">{{item.skv}}</a></td>
-      <td>{{item.gtm}}</td>
+      <!-- <td>{{item.gtm}}</td> -->
       <td>{{item.email}}</td> <!-- <a class="email-link" ng-href="mailto:{{item.email}}">{{item.email}}</a> -->
       <td>{{item.age}}</td>
     </tr>
