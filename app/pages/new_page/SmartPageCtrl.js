@@ -19,9 +19,9 @@
     $scope.kpi_rent = Math.floor(Math.random() * 100);;
     $scope.kpi_poteri = Math.floor(Math.random() * 100);;
 
-    $scope.kpi_name1 = "";
-    $scope.kpi_name2 = "";
-    $scope.kpi_name3 = "";
+    $scope.kpi_name1 = "Эффект от ОТМ (дополонительная добыча)";
+    $scope.kpi_name2 = "Количество ГТМ";
+    $scope.kpi_name3 = "Отклонения прогноз/факт";
     $scope.kpi_name4 = "";
 
 
@@ -353,34 +353,34 @@
       {
         id: 1,
         mestorojdenie: 'Жанаталап',
-        skv: 'ZHT_0001',
-        gtm: 'КРС',
-        email: 'Ликвидация скважины',
-        age: 'Июнь'
+        skv: 'ZHT_0182',
+        gtm: 'ПРС',
+        email: 'Смена насоса',
+        age: 'Май'
       },
       {
         id: 2,
-        mestorojdenie: 'Гран',
-        skv: 'GRN_0001',
+        mestorojdenie: 'Жанаталап',
+        skv: 'ZHT_0115',
         gtm: 'ПРС',
-        email: 'Смена полированного штока',
+        email: 'Смена насоса',
         age: 'Май'
       },
       {
         id: 3,
-        mestorojdenie: 'Прорва',
-        skv: 'PRO_0001',
-        gtm: 'ГРП',
-        email: 'Подготовка (проведение) ГРП',
-        age: 'Август'
+        mestorojdenie: 'Жанаталап',
+        skv: 'ZHT_0114',
+        gtm: 'ПРС',
+        email: 'Смена насоса',
+        age: 'Май'
       },
       {
         id: 4,
-        mestorojdenie: 'Досмухамедовское',
-        skv: 'DOS_0001',
+        mestorojdenie: 'Жанаталап',
+        skv: 'ZHT_0141',
         gtm: 'ПРС',
-        email: 'Замена СУСГ',
-        age: 'Июль'
+        email: 'Смена насоса',
+        age: 'Май'
       },
       {
         id: 5,
@@ -1057,9 +1057,9 @@
             chart.validateData();
         }
         $scope.change_kpi();
-        $scope.kpi_name1 = "";
-        $scope.kpi_name2 = "";
-        $scope.kpi_name3 = "";
+        $scope.kpi_name1 = "Эффект от ОТМ (дополонительная добыча)";
+        $scope.kpi_name2 = "Количество ГТМ";
+        $scope.kpi_name3 = "Отклонения прогноз/факт";
         $scope.kpi_name4 = "";
     }
 
@@ -1105,9 +1105,9 @@
             chart.validateData();
         }
         $scope.change_kpi();
-        $scope.kpi_name1 = "";
-        $scope.kpi_name2 = "";
-        $scope.kpi_name3 = "";
+        $scope.kpi_name1 = "Количество прогнозируемых ремонтов";
+        $scope.kpi_name2 = "Отклонения прогноз/факт";
+        $scope.kpi_name3 = "Прочее";
         $scope.kpi_name4 = "";
 
     }
