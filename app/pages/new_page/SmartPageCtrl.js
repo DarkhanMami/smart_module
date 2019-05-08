@@ -154,7 +154,7 @@
         "fillAlphas": 0.8,
         "lineAlpha": 0.8,
         "type": "column",
-        "title": "Добыча жидкости 2018",
+        "title": "Потери нефти прогноз",
         "valueField": "sales2",
         "clustered": true,
         "columnWidth": 1,
@@ -170,7 +170,7 @@
         "fillAlphas": 0.9,
         "lineAlpha": 0.9,
         "type": "column",
-        "title": "Добыча жидкости 2019",
+        "title": "Потери нефти факт",
         "valueField": "sales1",
         "clustered": true,
         "columnWidth": 1,
@@ -1099,6 +1099,55 @@
                 obj["date"] = data['valid']['date'][x];
                 obj["sales2"] = data['forecast']['oilloss'][x];
                 obj["sales3"] = data['valid']['oilloss'][x];
+                chart["dataProvider"].push(obj);
+                        
+            }
+            chart.validateData();
+        }
+        $scope.change_kpi();
+        $scope.kpi_name1 = "Количество прогнозируемых ремонтов";
+        $scope.kpi_name2 = "Отклонения прогноз/факт";
+        $scope.kpi_name3 = "Прочее";
+        $scope.kpi_name4 = "";
+
+    }
+
+    $scope.button_third = function () {
+        var chart = $rootScope.chart;
+        if ($scope.byMonth){
+            var result = [];
+            var data = chart_data;
+            for (var x in data['month']['train']['date']) {
+                var obj = {};
+                obj["date"] = data['month']['train']['date'][x];
+                obj["sales1"] = data['month']['train']['remont'][x];
+                result.push(obj);
+            }
+            chart.dataProvider = result;
+            for (var x in data['month']['valid']['date']) {
+                var obj = {};
+                obj["date"] = data['month']['valid']['date'][x];
+                obj["sales2"] = data['month']['forecast']['remont'][x];
+                obj["sales3"] = data['month']['valid']['remont'][x];
+                chart["dataProvider"].push(obj);
+                        
+            }
+            chart.validateData();
+        } else {
+            var result = [];
+            var data = chart_data;
+            for (var x in data['train']['date']) {
+                var obj = {};
+                obj["date"] = data['train']['date'][x];
+                obj["sales1"] = data['train']['remont'][x];
+                result.push(obj);
+            }
+            chart.dataProvider = result;
+            for (var x in data['valid']['date']) {
+                var obj = {};
+                obj["date"] = data['valid']['date'][x];
+                obj["sales2"] = data['forecast']['remont'][x];
+                obj["sales3"] = data['valid']['remont'][x];
                 chart["dataProvider"].push(obj);
                         
             }
