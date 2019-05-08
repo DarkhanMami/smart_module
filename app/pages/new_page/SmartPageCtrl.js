@@ -14,6 +14,24 @@
     $scope.selectedRowTable = 0;
     $scope.byMonth = true;
     $scope.rem_type = "Общее";
+    $scope.kpi_otm_effect = Math.floor(Math.random() * 100);;
+    $scope.kpi_economy = Math.floor(Math.random() * 100);;
+    $scope.kpi_rent = Math.floor(Math.random() * 100);;
+    $scope.kpi_poteri = Math.floor(Math.random() * 100);;
+
+    $scope.kpi_name1 = "";
+    $scope.kpi_name2 = "";
+    $scope.kpi_name3 = "";
+    $scope.kpi_name4 = "";
+
+
+    $scope.change_kpi = function() {
+        $scope.kpi_otm_effect = Math.floor(Math.random() * 100);;
+        $scope.kpi_economy = Math.floor(Math.random() * 100);;
+        $scope.kpi_rent = Math.floor(Math.random() * 100);;
+        $scope.kpi_poteri = Math.floor(Math.random() * 100);;
+    }
+
 
     var layoutColors = baConfig.colors;
     var chart_data = {};
@@ -309,7 +327,7 @@
     $rootScope.chart = chart;
     $scope.data = {};
 
-    $http.get("data/data.json")
+    $http.get("http://194.87.93.175/nova-api/get_remontsData")
         .success(function (data) {
             var result = [];
             for (var rem in data['stats']) {
@@ -1038,6 +1056,11 @@
             chart.dataProvider = result;
             chart.validateData();
         }
+        $scope.change_kpi();
+        $scope.kpi_name1 = "";
+        $scope.kpi_name2 = "";
+        $scope.kpi_name3 = "";
+        $scope.kpi_name4 = "";
     }
 
     $scope.button_second = function () {
@@ -1081,7 +1104,11 @@
             }
             chart.validateData();
         }
-
+        $scope.change_kpi();
+        $scope.kpi_name1 = "";
+        $scope.kpi_name2 = "";
+        $scope.kpi_name3 = "";
+        $scope.kpi_name4 = "";
 
     }
 
