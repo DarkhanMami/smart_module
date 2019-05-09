@@ -1080,7 +1080,7 @@
                 var obj = {};
                 obj["date"] = data['month']['valid']['date'][x];
                 obj["sales2"] = data['month']['forecast']['oilloss'][x];
-                obj["sales3"] = data['month']['valid']['oilloss'][x];
+                obj["sales1"] = data['month']['valid']['oilloss'][x];
                 chart["dataProvider"].push(obj);
                         
             }
@@ -1099,7 +1099,7 @@
                 var obj = {};
                 obj["date"] = data['valid']['date'][x];
                 obj["sales2"] = data['forecast']['oilloss'][x];
-                obj["sales3"] = data['valid']['oilloss'][x];
+                obj["sales1"] = data['valid']['oilloss'][x];
                 chart["dataProvider"].push(obj);
                         
             }
@@ -1129,7 +1129,7 @@
                 var obj = {};
                 obj["date"] = data['month']['valid']['date'][x];
                 obj["sales2"] = data['month']['forecast']['remont'][x];
-                obj["sales3"] = data['month']['valid']['remont'][x];
+                obj["sales1"] = data['month']['valid']['remont'][x];
                 chart["dataProvider"].push(obj);
                         
             }
@@ -1148,7 +1148,7 @@
                 var obj = {};
                 obj["date"] = data['valid']['date'][x];
                 obj["sales2"] = data['forecast']['remont'][x];
-                obj["sales3"] = data['valid']['remont'][x];
+                obj["sales1"] = data['valid']['remont'][x];
                 chart["dataProvider"].push(obj);
                         
             }
