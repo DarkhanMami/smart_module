@@ -1105,7 +1105,7 @@
             chart.validateData();
         }
         $scope.change_kpi();
-        $scope.kpi_name1 = "Количество прогнозируемых ремонтов";
+        $scope.kpi_name1 = "Недоборы нефти";
         $scope.kpi_name2 = "Отклонения прогноз/факт";
         $scope.kpi_name3 = "Прочее";
         $scope.kpi_name4 = "";
@@ -1184,6 +1184,11 @@
         }
 
         $rootScope.main_chart.validateData();
+        $scope.change_kpi();
+        $scope.kpi_name1 = "Время реакции ";
+        $scope.kpi_name2 = "Сокращение недоборов нефти";
+        $scope.kpi_name3 = "Отклонения прогноз/факт";
+        $scope.kpi_name4 = "";
     }
 
 
