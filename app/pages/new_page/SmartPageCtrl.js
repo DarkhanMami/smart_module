@@ -327,7 +327,8 @@
     $rootScope.chart = chart;
     $scope.data = {};
 
-    $http.get("http://194.87.93.175/nova-api/get_remontsData")
+    // $http.get("http://194.87.93.175/nova-api/get_remontsData")
+    $http.get("data/data.json")
         .success(function (data) {
             var result = [];
             for (var rem in data['stats']) {
