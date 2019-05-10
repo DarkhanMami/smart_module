@@ -20,7 +20,31 @@
                   </div>
           </div>
           <br>
-        <div ng-include="'app/pages/new_page/label.html'"></div>
+          <div class="item black-top-list" id="kpi" style="border: 2px solid #484848; border-radius: 8px; background-color: #1E3C40">
+                <div class="card-header">Отклонение текущей<br>добычи от плана</div>
+                  <div class="card-body" style="color: yellow">
+                    <span ng-if="otkl2hour1 >= 0"><i class="ion-arrow-up-c"></i> </span>
+                    <span ng-if="otkl2hour1 < 0"><i class="ion-arrow-down-b big-3 color-danger"></i> </span>
+                    123&nbsp<br><br>
+                    <h ng-style="{'font-size':'15px','color':'yellow','padding-top':'0px'}">(123)&nbsp</h>
+                    <h class="text-static"> м³</h>
+                    <h class="text-static-2"> %</h>
+                  </div>
+          </div>
+          <br>
+          <div class="item black-top-list" id="kpi" style="border: 2px solid #484848; border-radius: 8px; background-color: #1E3C40">
+                <div class="card-header">Отклонение текущей<br>добычи от плана</div>
+                  <div class="card-body" style="color: yellow">
+                    <span ng-if="otkl2hour1 >= 0"><i class="ion-arrow-up-c"></i> </span>
+                    <span ng-if="otkl2hour1 < 0"><i class="ion-arrow-down-b big-3 color-danger"></i> </span>
+                    123&nbsp<br><br>
+                    <h ng-style="{'font-size':'15px','color':'yellow','padding-top':'0px'}">(123)&nbsp</h>
+                    <h class="text-static"> м³</h>
+                    <h class="text-static-2"> %</h>
+                  </div>
+          </div>
+
+        <!-- <div ng-include="'app/pages/new_page/label.html'"></div> -->
           
       </div>
 
@@ -103,12 +127,22 @@
       <div ba-panel \
            ba-panel-title="Прогнозирование проводимых ГТМ, в разрезе месторождении и скважин" ba-panel-class="with-scroll">
         <div ba-panel class="col-matrix-heading"> 
-          <div class="col-matrix-1-kub"></div>
-          <div class="col-matrix-2-kub"></div>
-          <div class="col-matrix-3-kub"></div>
-          <div class="col-matrix-4-kub"></div>
 
+            <div class="col-matrix-1-legend">asdaf</div>
+            <div class="col-matrix-2-legend">asdaf</div>
+            <div class="col-matrix-3-legend">asdaf</div>
+            <div class="col-matrix-4-legend">asdaf</div>
+
+            <div class="col-matrix-1-kub"></div>
+              <div class="col-matrix-1-kub-text"> dsvsd</div>
+            <div class="col-matrix-2-kub"></div>
+              <div class="col-matrix-2-kub-text"> dsvsd</div>
+            <div class="col-matrix-3-kub"></div>
+              <div class="col-matrix-3-kub-text"> dsvsd</div>
+            <div class="col-matrix-4-kub"></div>
+              <div class="col-matrix-4-kub-text"> dsvsd</div>
         </div>
+
           <div class="col-matrix" style="background-color: #505050">
             <div class="col-matrix-1">
               11
