@@ -8,37 +8,39 @@
           ba-panel
           ba-panel-title="KPI (%)"
           ba-panel-class="with-scroll">
-        <div ng-include="'app/pages/new_page/label.html'"></div>
           <div class="item black-top-list" id="kpi" style="border: 2px solid #BCA24E; border-radius: 8px; background-color: #1E3C40">
                 <div class="card-header">Отклонение текущей<br>добычи от плана</div>
                   <div class="card-body" style="color: yellow">
-                    <span ng-if="otkl2hour1 >= 0"><i class="ion-arrow-up-b big-3 color-good"></i> </span>
+                    <span ng-if="otkl2hour1 >= 0"><i class="ion-arrow-up-c"></i> </span>
                     <span ng-if="otkl2hour1 < 0"><i class="ion-arrow-down-b big-3 color-danger"></i> </span>
-                    123 <br><br>
+                    123&nbsp<br><br>
                     <h ng-style="{'font-size':'15px','color':'yellow','padding-top':'0px'}">(123)&nbsp</h>
                     <h class="text-static"> м³</h>
                     <h class="text-static-2"> %</h>
                   </div>
           </div>
+          <br>
+        <div ng-include="'app/pages/new_page/label.html'"></div>
+          
       </div>
 
         <div ba-panel ba-panel-class="with-scroll heading-widget" ba-panel-title="KPI">
           <div class="section-block">
             <h4>План - расход на ГТМ</h4>
             <h2 style="font-weight: normal">$ 42,571</h2>
-          </div><br>
+          </div>
           <div class="section-block">
             <h4>Отклонение от плана</h4>
             <h2 style="font-weight: normal">$ 9,979</h2>
-          </div><br>
-          <div class="section-block">
+          </div>
+          <!-- <div class="section-block">
             <h4>План - доход от ГТМ</h4>
             <h2 style="font-weight: normal">$ 87,456</h2>
           </div>
-          <div class="section-block" style="height: 45px">
+          <div class="section-block">
             <h4>Факт - доход</h4>
             <h2 style="font-weight: normal">$ 107,233</h2>
-          </div>
+          </div> -->
           <!-- <div class="section-block">
             <h4>H4. Heading 4</h4>
 
