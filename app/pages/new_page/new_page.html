@@ -9,17 +9,17 @@
           ba-panel-title="KPI (%)"
           ba-panel-class="with-scroll">
         <div ng-include="'app/pages/new_page/label.html'"></div>
-        <div class="item black-top-list" id="kpi" style="border: 2px solid #BCA24E; border-radius: 8px; background-color: #1E3C40">
+          <div class="item black-top-list" id="kpi" style="border: 2px solid #BCA24E; border-radius: 8px; background-color: #1E3C40">
                 <div class="card-header">Отклонение текущей<br>добычи от плана</div>
                   <div class="card-body" style="color: yellow">
-                    <span ng-if="otkl2hour1 >= 0"><i class=" ion-arrow-up-b big-3 color-good"></i> </span>
-                  <span ng-if="otkl2hour1 < 0"><i class=" ion-arrow-down-b big-3 color-danger"></i> </span>
-                    123 <br>
-                    <h ng-style="{'font-size':'15px','color':'yellow'}"}">(123)&nbsp</h>
+                    <span ng-if="otkl2hour1 >= 0"><i class="ion-arrow-up-b big-3 color-good"></i> </span>
+                    <span ng-if="otkl2hour1 < 0"><i class="ion-arrow-down-b big-3 color-danger"></i> </span>
+                    123 <br><br>
+                    <h ng-style="{'font-size':'15px','color':'yellow','padding-top':'0px'}">(123)&nbsp</h>
                     <h class="text-static"> м³</h>
                     <h class="text-static-2"> %</h>
                   </div>
-              </div>
+          </div>
       </div>
 
         <div ba-panel ba-panel-class="with-scroll heading-widget" ba-panel-title="KPI">
