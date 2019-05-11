@@ -14,10 +14,17 @@
     $scope.selectedRowTable = 0;
     $scope.byMonth = true;
     $scope.rem_type = "Общее";
-    $scope.kpi_otm_effect = Math.floor(Math.random() * 100);;
-    $scope.kpi_economy = Math.floor(Math.random() * 100);;
-    $scope.kpi_rent = Math.floor(Math.random() * 100);;
-    $scope.kpi_poteri = Math.floor(Math.random() * 100);;
+    $scope.kpi_otm_effect = Math.floor(Math.random() * 100);
+    $scope.kpi_economy = Math.floor(Math.random() * 100);
+    $scope.kpi_rent = Math.floor(Math.random() * 100);
+   
+    $scope.kpi_poteri2015 = 0;
+    $scope.kpi_prostoi2015 = 0;
+    $scope.kpi_poteri2019 = 0;
+    $scope.kpi_prostoi2019 = 0;
+
+    $scope.otkl_poteri = 0;
+    $scope.otkl_poteri_procent = 0;
 
     $scope.kpi_name1 = "Эффект от ОТМ (дополонительная добыча)";
     $scope.kpi_name2 = "Количество ГТМ";
@@ -26,10 +33,9 @@
 
 
     $scope.change_kpi = function() {
-        $scope.kpi_otm_effect = Math.floor(Math.random() * 100);;
-        $scope.kpi_economy = Math.floor(Math.random() * 100);;
-        $scope.kpi_rent = Math.floor(Math.random() * 100);;
-        $scope.kpi_poteri = Math.floor(Math.random() * 100);;
+        $scope.kpi_otm_effect = Math.floor(Math.random() * 100);
+        $scope.kpi_economy = Math.floor(Math.random() * 100);
+        $scope.kpi_rent = Math.floor(Math.random() * 100);
     }
 
 
@@ -1057,11 +1063,19 @@
             chart.dataProvider = result;
             chart.validateData();
         }
-        $scope.change_kpi();
-        $scope.kpi_name1 = "Эффект от ОТМ (дополонительная добыча)";
-        $scope.kpi_name2 = "Количество ГТМ";
-        $scope.kpi_name3 = "Отклонения прогноз/факт";
-        $scope.kpi_name4 = "";
+        
+        $scope.kpi_poteri2015 = data['month']['train']['stat'][0];
+        $scope.kpi_prostoi2015 = data['month']['train']['stat'][2];
+        $scope.kpi_poteri2019 = data['month']['forecast']['stat'][0] + data['month']['forecast']['stat'][1];
+        $scope.kpi_prostoi2019 = data['month']['forecast']['stat'][2] + data['month']['forecast']['stat'][3];
+        $scope.otkl_poteri = data['month']['valid']['stat'][0] - data['month']['forecast']['stat'][0];
+        $scope.otkl_poteri_procent = (data['month']['valid']['stat'][0] - data['month']['forecast']['stat'][0]) / data['month']['valid']['stat'][0] * 100;
+
+        // $scope.change_kpi();
+        // $scope.kpi_name1 = "Эффект от ОТМ (дополонительная добыча)";
+        // $scope.kpi_name2 = "Количество ГТМ";
+        // $scope.kpi_name3 = "Отклонения прогноз/факт";
+        // $scope.kpi_name4 = "";
     }
 
     $scope.button_second = function () {

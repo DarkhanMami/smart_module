@@ -9,38 +9,37 @@
           ba-panel-title="KPI (%)"
           ba-panel-class="with-scroll">
           <div class="item black-top-list" id="kpi" style="border: 2px solid #BCA24E; border-radius: 8px; background-color: #1E3C40">
-                <div class="card-header">Отклонение текущей<br>добычи от плана</div>
+                <div class="card-header">Потери-простои нефти <br> 2015 - 2018</div>
                   <div class="card-body" style="color: yellow">
-                    <span ng-if="otkl2hour1 >= 0"><i class="ion-arrow-up-c"></i> </span>
-                    <span ng-if="otkl2hour1 < 0"><i class="ion-arrow-down-b big-3 color-danger"></i> </span>
-                    123&nbsp<br><br>
-                    <h ng-style="{'font-size':'15px','color':'yellow','padding-top':'0px'}">(123)&nbsp</h>
-                    <h class="text-static"> м³</h>
-                    <h class="text-static-2"> %</h>
+                    {{kpi_poteri2015 | number:0}}&nbsp<br><br>
+                    <h ng-style="{'font-size':'15px','color':'yellow','padding-top':'0px'}">{{kpi_prostoi2015 | number:0}}&nbsp</h>
+                    <h class="text-static">тн</h>
+                    <h class="text-static-2">дн</h>
                   </div>
           </div>
           <br>
           <div class="item black-top-list" id="kpi" style="border: 2px solid #484848; border-radius: 8px; background-color: #1E3C40">
-                <div class="card-header">Отклонение текущей<br>добычи от плана</div>
+                <div class="card-header">Потери-простои нефти<br>прогноз на 2019</div>
                   <div class="card-body" style="color: yellow">
-                    <span ng-if="otkl2hour1 >= 0"><i class="ion-arrow-up-c"></i> </span>
-                    <span ng-if="otkl2hour1 < 0"><i class="ion-arrow-down-b big-3 color-danger"></i> </span>
-                    123&nbsp<br><br>
-                    <h ng-style="{'font-size':'15px','color':'yellow','padding-top':'0px'}">(123)&nbsp</h>
-                    <h class="text-static"> м³</h>
-                    <h class="text-static-2"> %</h>
+                    {{kpi_poteri2019 | number:0}}&nbsp<br><br>
+                    <h ng-style="{'font-size':'15px','color':'yellow','padding-top':'0px'}">{{kpi_prostoi2019 | number:0}}&nbsp</h>
+                    <h class="text-static">тн</h>
+                    <h class="text-static-2">дн</h>
                   </div>
           </div>
           <br>
           <div class="item black-top-list" id="kpi" style="border: 2px solid #484848; border-radius: 8px; background-color: #1E3C40">
-                <div class="card-header">Отклонение текущей<br>добычи от плана</div>
+                <div class="card-header">Откл. факта от прогноза<br>янв-апр 2019</div>
                   <div class="card-body" style="color: yellow">
-                    <span ng-if="otkl2hour1 >= 0"><i class="ion-arrow-up-c"></i> </span>
-                    <span ng-if="otkl2hour1 < 0"><i class="ion-arrow-down-b big-3 color-danger"></i> </span>
-                    123&nbsp<br><br>
-                    <h ng-style="{'font-size':'15px','color':'yellow','padding-top':'0px'}">(123)&nbsp</h>
-                    <h class="text-static"> м³</h>
-                    <h class="text-static-2"> %</h>
+                    <span ng-if="otkl_poteri >= 0"><i class=" ion-arrow-up-b" style="color: green"></i> </span>
+                    <span ng-if="otkl_poteri < 0"><i class=" ion-arrow-down-b" style="color: red"></i> </span>
+                    {{otkl_poteri | number:0}}&nbsp<br><br>
+                    <h ng-style="{'font-size':'15px','color':'yellow','padding-top':'0px'}">
+                    <span ng-if="otkl_poteri >= 0"><i class=" ion-arrow-up-b" style="color: green"></i> </span>
+                    <span ng-if="otkl_poteri < 0"><i class=" ion-arrow-down-b" style="color: red"></i> </span>
+                    ({{otkl_poteri_procent | number:2}})&nbsp</h>
+                    <h class="text-static">тн</h>
+                    <h class="text-static-2">%</h>
                   </div>
           </div>
 
