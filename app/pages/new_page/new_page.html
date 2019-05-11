@@ -8,40 +8,41 @@
           ba-panel
           ba-panel-title="KPI (%)"
           ba-panel-class="with-scroll">
-          <div class="item black-top-list" id="kpi" style="border: 2px solid #BCA24E; border-radius: 8px; background-color: #1E3C40">
-                <div class="card-header">Потери-простои нефти <br> 2015 - 2018</div>
-                  <div class="card-body" style="color: yellow">
-                    {{kpi_poteri2015 | number:0}}&nbsp<br><br>
-                    <h ng-style="{'font-size':'15px','color':'yellow','padding-top':'0px'}">{{kpi_prostoi2015 | number:0}}&nbsp</h>
-                    <h class="text-static">тн</h>
-                    <h class="text-static-2">дн</h>
-                  </div>
-          </div>
-          <br>
-          <div class="item black-top-list" id="kpi" style="border: 2px solid #484848; border-radius: 8px; background-color: #1E3C40">
-                <div class="card-header">Потери-простои нефти<br>прогноз на 2019</div>
-                  <div class="card-body" style="color: yellow">
-                    {{kpi_poteri2019 | number:0}}&nbsp<br><br>
-                    <h ng-style="{'font-size':'15px','color':'yellow','padding-top':'0px'}">{{kpi_prostoi2019 | number:0}}&nbsp</h>
-                    <h class="text-static">тн</h>
-                    <h class="text-static-2">дн</h>
-                  </div>
-          </div>
-          <br>
-          <div class="item black-top-list" id="kpi" style="border: 2px solid #484848; border-radius: 8px; background-color: #1E3C40">
-                <div class="card-header">Откл. факта от прогноза<br>янв-апр 2019</div>
-                  <div class="card-body" style="color: yellow">
-                    <span ng-if="otkl_poteri >= 0"><i class=" ion-arrow-up-b" style="color: green"></i> </span>
-                    <span ng-if="otkl_poteri < 0"><i class=" ion-arrow-down-b" style="color: red"></i> </span>
-                    {{otkl_poteri | number:0}}&nbsp<br><br>
-                    <h ng-style="{'font-size':'15px','color':'yellow','padding-top':'0px'}">
-                    <span ng-if="otkl_poteri >= 0"><i class=" ion-arrow-up-b" style="color: green"></i> </span>
-                    <span ng-if="otkl_poteri < 0"><i class=" ion-arrow-down-b" style="color: red"></i> </span>
-                    ({{otkl_poteri_procent | number:2}})&nbsp</h>
-                    <h class="text-static">тн</h>
-                    <h class="text-static-2">%</h>
-                  </div>
-          </div>
+          
+            <div class="item black-top-list" id="kpi" style="border: 2px solid #BCA24E; border-radius: 8px; background-color: #1E3C40">
+                  <div class="card-header">Потери-простои нефти <br> 2015 - 2018</div>
+                    <div class="card-body" style="color: yellow">
+                      {{kpi_poteri2015 | number:0}}&nbsp<br><br>
+                      <h ng-style="{'font-size':'15px','color':'yellow','padding-top':'0px'}">{{kpi_prostoi2015 | number:0}}&nbsp</h>
+                      <h class="text-static">тн</h>
+                      <h class="text-static-2">дн</h>
+                    </div>
+            </div>
+            <br>
+            <div class="item black-top-list" id="kpi" style="border: 2px solid #505050; border-radius: 8px; background-color: #1E3C40">
+                  <div class="card-header">Потери-простои нефти<br>прогноз на 2019</div>
+                    <div class="card-body" style="color: yellow">
+                      {{kpi_poteri2019 | number:0}}&nbsp<br><br>
+                      <h ng-style="{'font-size':'15px','color':'yellow','padding-top':'0px'}">{{kpi_prostoi2019 | number:0}}&nbsp</h>
+                      <h class="text-static">тн</h>
+                      <h class="text-static-2">дн</h>
+                    </div>
+            </div>
+            <br>
+            <div class="item black-top-list" id="kpi" style="border: 2px solid #505050; border-radius: 8px; background-color: #1E3C40">
+                  <div class="card-header">Откл. факта от прогноза<br>янв-апр 2019</div>
+                    <div class="card-body" style="color: yellow">
+                      <span ng-if="otkl_poteri >= 0"><i class=" ion-arrow-up-b" style="color: green; font-size: 25px"></i> </span>
+                      <span ng-if="otkl_poteri < 0"><i class=" ion-arrow-down-b" style="color: red; font-size: 25px"></i> </span>
+                      <h class="text-static-numb">{{otkl_poteri | number:0}}&nbsp</h><br><br>
+                      <h ng-style="{'font-size':'15px','color':'yellow','padding-top':'0px'}">
+                      <span ng-if="otkl_poteri >= 0"><i class=" ion-arrow-up-b" style="color: green; font-size: 25px"></i> </span>
+                      <span ng-if="otkl_poteri < 0"><i class=" ion-arrow-down-b" style="color: red; font-size: 25px"></i> </span>
+                      <h class="text-static-numb-2">({{otkl_poteri_procent | number:2}})&nbsp</h></h>
+                      <h class="text-static">тн</h>
+                      <h class="text-static-2">%</h>
+                    </div>
+            </div>
 
         <!-- <div ng-include="'app/pages/new_page/label.html'"></div> -->
           
@@ -126,22 +127,22 @@
       <div ba-panel \
            ba-panel-title="Прогнозирование проводимых ГТМ, в разрезе месторождении и скважин" ba-panel-class="with-scroll">
         <div ba-panel class="col-matrix-heading"> 
-
-            <div class="col-matrix-1-legend">asdaf</div>
-            <div class="col-matrix-2-legend">asdaf</div>
-            <div class="col-matrix-3-legend">asdaf</div>
-            <div class="col-matrix-4-legend">asdaf</div>
+            <div class="col-matrix-centre-legend">Замер</div>
+            <div class="col-matrix-1-legend">Номер скважины (ASA_xxxx)</div>
+            <div class="col-matrix-2-legend">Тех. режим по нефти ТБД (тн)</div>
+            <div class="col-matrix-3-legend">Тех/режим по жидк.ТБД (м³)</div>
+            <div class="col-matrix-4-legend">Обводненность ТБД (%)</div>
 
             <div class="col-matrix-1-kub"></div>
-              <div class="col-matrix-1-kub-text"> dsvsd</div>
+              <div class="col-matrix-1-kub-text"> Потеря нефти менее 10тн;</div>
             <div class="col-matrix-2-kub"></div>
-              <div class="col-matrix-2-kub-text"> dsvsd</div>
+              <div class="col-matrix-2-kub-text"> Больше режима более 5тн;</div>
             <div class="col-matrix-3-kub"></div>
-              <div class="col-matrix-3-kub-text"> dsvsd</div>
+              <div class="col-matrix-3-kub-text"> Потеря нефти более 10тн;</div>
             <div class="col-matrix-4-kub"></div>
-              <div class="col-matrix-4-kub-text"> dsvsd</div>
+              <div class="col-matrix-4-kub-text"> Больше режима менее 5тн;</div>
         </div>
-
+        <div class="row">
           <div class="col-matrix" style="background-color: #505050">
             <div class="col-matrix-1">
               11
@@ -206,7 +207,7 @@
             </div>
           </div>
 
-          <div class="col-matrix" style="background-color: #209D90">
+          <div class="col-matrix" style="background-color: #209C8F">
             <div class="col-matrix-1">
               11
             </div>
@@ -221,6 +222,53 @@
               14
             </div>
           </div>
+          <div class="col-matrix" style="background-color: #505050">
+            <div class="col-matrix-1">
+              11
+            </div>
+            <div class="col-matrix-2">
+              12
+            </div>
+            <div class="col-matrix-centre">154</div>
+            <div class="col-matrix-3">
+              13
+            </div>
+            <div class="col-matrix-4">
+              14
+            </div>
+          </div>
+          <div class="col-matrix" style="background-color: #505050">
+            <div class="col-matrix-1">
+              11
+            </div>
+            <div class="col-matrix-2">
+              12
+            </div>
+            <div class="col-matrix-centre">154</div>
+            <div class="col-matrix-3">
+              13
+            </div>
+            <div class="col-matrix-4">
+              14
+            </div>
+          </div>
+          <div class="col-matrix" style="background-color: #505050">
+            <div class="col-matrix-1">
+              11
+            </div>
+            <div class="col-matrix-2">
+              12
+            </div>
+            <div class="col-matrix-centre">154</div>
+            <div class="col-matrix-3">
+              13
+            </div>
+            <div class="col-matrix-4">
+              14
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
