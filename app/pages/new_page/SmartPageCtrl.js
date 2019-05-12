@@ -41,6 +41,7 @@
 
     $scope.matrix_data = {};
     $scope.matrix = [];
+    $scope.selectedButton = 0;
 
 
     $scope.change_kpi = function() {
@@ -359,7 +360,8 @@
             $scope.remont_types = result;
             $scope.rem_types = result;
             $scope.data = data;
-            $scope.button_first();
+            // $scope.button_first();
+            $scope.button_second();
         })
         .error(function (data) {
             console.log("there was an error");
@@ -1101,6 +1103,7 @@
     }
 
     $scope.button_second = function () {
+        $scope.selectedButton = 2;
         var chart = $rootScope.chart;
         if ($scope.byMonth){
             var result = [];
@@ -1120,6 +1123,9 @@
                 chart["dataProvider"].push(obj);
                         
             }
+            chart.categoryAxis.minPeriod = "MM";
+            chart.categoryAxis.parseDates = true;
+            chart.dataProvider = result;
             chart.validateData();
         } else {
             var result = [];
@@ -1139,17 +1145,22 @@
                 chart["dataProvider"].push(obj);
                         
             }
+            chart.categoryAxis.minPeriod = "DD";
+            chart.categoryAxis.parseDates = true;
+            chart.dataProvider = result;
             chart.validateData();
         }
-        $scope.change_kpi();
-        $scope.kpi_name1 = "Недоборы нефти";
-        $scope.kpi_name2 = "Отклонения прогноз/факт";
-        $scope.kpi_name3 = "Прочее";
-        $scope.kpi_name4 = "";
+        $scope.kpi_poteri2015 = data['month']['train']['stat'][0];
+        $scope.kpi_prostoi2015 = data['month']['train']['stat'][2];
+        $scope.kpi_poteri2019 = data['month']['forecast']['stat'][0] + data['month']['forecast']['stat'][1];
+        $scope.kpi_prostoi2019 = data['month']['forecast']['stat'][2] + data['month']['forecast']['stat'][3];
+        $scope.otkl_poteri = data['month']['valid']['stat'][0] - data['month']['forecast']['stat'][0];
+        $scope.otkl_poteri_procent = (data['month']['valid']['stat'][0] - data['month']['forecast']['stat'][0]) / data['month']['valid']['stat'][0] * 100;
 
     }
 
     $scope.button_third = function () {
+        $scope.selectedButton = 3;
         var chart = $rootScope.chart;
         if ($scope.byMonth){
             var result = [];
@@ -1199,33 +1210,12 @@
     }
 
     $scope.button_fourth = function () {
-        $rootScope.main_chart.dataProvider = [];
-        var result = [];
-        $rootScope.main_chart.graphs[0].hidden = false;
-        var data = $rootScope.chart_data;
-        for (var x in data['train']['date']) {
-            var obj = {};
-            obj["date"] = data['train']['date'][x];
-            obj["loss1"] = data['train']['remont'][x];
-            result.push(obj);
-        }
-        $rootScope.main_chart.categoryAxis.parseDates = true;
-        $rootScope.main_chart.dataProvider = result;
-
-        for (var x in $rootScope.chart_data['valid']['date']) {
-            var obj = {};
-            obj["date"] = $rootScope.chart_data['valid']['date'][x];
-            obj["loss2"] = $rootScope.chart_data['forecast']['remont'][x];
-            $rootScope.main_chart["dataProvider"].push(obj);
-                    
-        }
-
-        $rootScope.main_chart.validateData();
-        $scope.change_kpi();
-        $scope.kpi_name1 = "Время реакции ";
-        $scope.kpi_name2 = "Сокращение недоборов нефти";
-        $scope.kpi_name3 = "Отклонения прогноз/факт";
-        $scope.kpi_name4 = "";
+        $scope.selectedButton = 4;
+        // $scope.change_kpi();
+        // $scope.kpi_name1 = "Время реакции ";
+        // $scope.kpi_name2 = "Сокращение недоборов нефти";
+        // $scope.kpi_name3 = "Отклонения прогноз/факт";
+        // $scope.kpi_name4 = "";
     }
 
 

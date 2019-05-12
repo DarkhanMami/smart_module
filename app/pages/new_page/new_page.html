@@ -117,14 +117,13 @@
     <!--</div>-->
     <!--</div>-->
   </div>
-    <div class="col-md-6">
+    <div class="col-md-6" ng-if="selectedButton != 4">
       <div ba-panel ba-panel-title="Виды ГТМ" ba-panel-class="with-scroll">
         <div include-with-scope="app/pages/new_page/remont_types.html"></div>
       </div>
     </div>
-    <div class="col-md-6">
-      <div ba-panel \
-           ba-panel-title="Прогнозирование проводимых ГТМ, в разрезе месторождении и скважин">
+    <div class="col-md-6" ng-if="selectedButton == 4">
+      <div ba-panel ba-panel-title="Прогнозирование проводимых ГТМ, в разрезе месторождении и скважин">
         <div ba-panel> 
             <div class="col-matrix-centre-legend">(ASA_xxxx)</div>
             <div class="col-matrix-1-legend">Последний замер</div>
@@ -141,74 +140,74 @@
             <!-- <div class="col-matrix-4-kub"></div>
               <div class="col-matrix-4-kub-text">Не значительное откл;</div> -->
         </div>
-        <div class="matrix-tab">
-        <div class="row" ng-repeat="items in matrix">
-            <div class="col-md-2" ng-repeat="item in items track by $index">
-                <div class="col-matrix" ng-if="item[5] == 0" style="background-color: #505050">
-                    <div class="col-matrix-1">
-                        {{item[0]}}
+        <div ba-panel style="height: 460px; overflow: auto;">
+            <div class="row" ng-repeat="items in matrix">
+                <div class="col-md-2" ng-repeat="item in items track by $index">
+                    <div class="col-matrix" ng-if="item[5] == 0" style="background-color: #505050; margin-left: -12px; border-radius: 5px; border: 1px solid #373737;">
+                        <div class="col-matrix-1">
+                            {{item[0]}}
+                        </div>
+                        <div class="col-matrix-2">
+                            {{item[2]}}
+                        </div>
+                        <div class="col-matrix-centre">{{item[1] | number : 0}}</div>
+                        <div class="col-matrix-3">
+                            {{item[3]}}
+                        </div>
+                        <div class="col-matrix-4">
+                            {{item[4]}}%
+                        </div>
                     </div>
-                    <div class="col-matrix-2">
-                        {{item[2]}}
+                    <div class="col-matrix" ng-if="item[5] == 1" style="background-color: #C80000; margin-left: -12px; border-radius: 5px; border: 1px solid #373737;">
+                        <div class="col-matrix-1">
+                            {{item[0]}}
+                        </div>
+                        <div class="col-matrix-2">
+                            {{item[2]}}
+                        </div>
+                        <div class="col-matrix-centre">{{item[1] | number : 0}}</div>
+                        <div class="col-matrix-3">
+                            {{item[3]}}
+                        </div>
+                        <div class="col-matrix-4">
+                            {{item[4]}}%
+                        </div>
                     </div>
-                    <div class="col-matrix-centre">{{item[1] | number : 0}}</div>
-                    <div class="col-matrix-3">
-                        {{item[3]}}
+                    <div class="col-matrix" ng-if="item[5] == 2" style="background-color: #CC9933; margin-left: -12px; border-radius: 5px; border: 1px solid #373737;">
+                        <div class="col-matrix-1">
+                            {{item[0]}}
+                        </div>
+                        <div class="col-matrix-2">
+                            {{item[2]}}
+                        </div>
+                        <div class="col-matrix-centre">{{item[1] | number : 0}}</div>
+                        <div class="col-matrix-3">
+                            {{item[3]}}
+                        </div>
+                        <div class="col-matrix-4">
+                            {{item[4]}}%
+                        </div>
                     </div>
-                    <div class="col-matrix-4">
-                        {{item[4]}}%
+                    <div class="col-matrix" ng-if="item[5] == 3" style="background-color: #008232; margin-left: -12px; border-radius: 5px; border: 1px solid #373737;">
+                        <div class="col-matrix-1">
+                            {{item[0]}}
+                        </div>
+                        <div class="col-matrix-2">
+                            {{item[2]}}
+                        </div>
+                        <div class="col-matrix-centre">{{item[1] | number : 0}}</div>
+                        <div class="col-matrix-3">
+                            {{item[3]}}
+                        </div>
+                        <div class="col-matrix-4">
+                            {{item[4]}}%
+                        </div>
                     </div>
                 </div>
-                <div class="col-matrix" ng-if="item[5] == 1" style="background-color: #C80000">
-                    <div class="col-matrix-1">
-                        {{item[0]}}
-                    </div>
-                    <div class="col-matrix-2">
-                        {{item[2]}}
-                    </div>
-                    <div class="col-matrix-centre">{{item[1] | number : 0}}</div>
-                    <div class="col-matrix-3">
-                        {{item[3]}}
-                    </div>
-                    <div class="col-matrix-4">
-                        {{item[4]}}%
-                    </div>
+                <div class="col-md-2" ng-repeat="i in [].constructor(6-items.length) track by $index">
                 </div>
-                <div class="col-matrix" ng-if="item[5] == 2" style="background-color: #CC9933">
-                    <div class="col-matrix-1">
-                        {{item[0]}}
-                    </div>
-                    <div class="col-matrix-2">
-                        {{item[2]}}
-                    </div>
-                    <div class="col-matrix-centre">{{item[1] | number : 0}}</div>
-                    <div class="col-matrix-3">
-                        {{item[3]}}
-                    </div>
-                    <div class="col-matrix-4">
-                        {{item[4]}}%
-                    </div>
-                </div>
-                <div class="col-matrix" ng-if="item[5] == 3" style="background-color: #008232">
-                    <div class="col-matrix-1">
-                        {{item[0]}}
-                    </div>
-                    <div class="col-matrix-2">
-                        {{item[2]}}
-                    </div>
-                    <div class="col-matrix-centre">{{item[1] | number : 0}}</div>
-                    <div class="col-matrix-3">
-                        {{item[3]}}
-                    </div>
-                    <div class="col-matrix-4">
-                        {{item[4]}}%
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2" ng-repeat="i in [].constructor(6-items.length) track by $index">
             </div>
         </div>
-      </div>
       </div>
     </div>
 
