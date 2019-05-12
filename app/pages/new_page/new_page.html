@@ -125,7 +125,7 @@
     </div>
     <div class="col-md-6">
       <div ba-panel \
-           ba-panel-title="Прогнозирование проводимых ГТМ, в разрезе месторождении и скважин" ba-panel-class="with-scroll">
+           ba-panel-title="Прогнозирование проводимых ГТМ, в разрезе месторождении и скважин" ba-panel-class="medium-panel with-scroll">
         <div ba-panel class="col-matrix-heading"> 
             <div class="col-matrix-centre-legend">Замер</div>
             <div class="col-matrix-1-legend">Номер скважины (ASA_xxxx)</div>
@@ -142,136 +142,77 @@
             <div class="col-matrix-4-kub"></div>
               <div class="col-matrix-4-kub-text"> Больше режима менее 5тн;</div>
         </div>
-        <div class="row">
-          <div class="col-matrix" style="background-color: #505050">
-            <div class="col-matrix-1">
-              11
+        <div class="row" ng-repeat="items in matrix">
+            <div class="col-md-2" ng-repeat="item in items track by $index">
+                <div class="col-matrix" ng-if="item[5] == 0" style="background-color: #505050">
+                    <div class="col-matrix-1">
+                        {{item[0]}}
+                    </div>
+                    <div class="col-matrix-2">
+                        {{item[2]}}
+                    </div>
+                    <div class="col-matrix-centre">{{item[1] | number : 0}}</div>
+                    <div class="col-matrix-3">
+                        {{item[3]}}
+                    </div>
+                    <div class="col-matrix-4">
+                        {{item[4]}}%
+                    </div>
+                </div>
+                <div class="col-matrix" ng-if="item[5] == 1" style="background-color: #C80000">
+                    <div class="col-matrix-1">
+                        {{item[0]}}
+                    </div>
+                    <div class="col-matrix-2">
+                        {{item[2]}}
+                    </div>
+                    <div class="col-matrix-centre">{{item[1] | number : 0}}</div>
+                    <div class="col-matrix-3">
+                        {{item[3]}}
+                    </div>
+                    <div class="col-matrix-4">
+                        {{item[4]}}%
+                    </div>
+                </div>
+                <div class="col-matrix" ng-if="item[5] == 2" style="background-color: #CC9933">
+                    <div class="col-matrix-1">
+                        {{item[0]}}
+                    </div>
+                    <div class="col-matrix-2">
+                        {{item[2]}}
+                    </div>
+                    <div class="col-matrix-centre">{{item[1] | number : 0}}</div>
+                    <div class="col-matrix-3">
+                        {{item[3]}}
+                    </div>
+                    <div class="col-matrix-4">
+                        {{item[4]}}%
+                    </div>
+                </div>
+                <div class="col-matrix" ng-if="item[5] == 3" style="background-color: #008232">
+                    <div class="col-matrix-1">
+                        {{item[0]}}
+                    </div>
+                    <div class="col-matrix-2">
+                        {{item[2]}}
+                    </div>
+                    <div class="col-matrix-centre">{{item[1] | number : 0}}</div>
+                    <div class="col-matrix-3">
+                        {{item[3]}}
+                    </div>
+                    <div class="col-matrix-4">
+                        {{item[4]}}%
+                    </div>
+                </div>
             </div>
-            <div class="col-matrix-2">
-              12
+            <div class="col-md-2" ng-repeat="i in [].constructor(6-items.length) track by $index">
             </div>
-            <div class="col-matrix-centre">154</div>
-            <div class="col-matrix-3">
-              13
-            </div>
-            <div class="col-matrix-4">
-              14
-            </div>
-          </div>
-
-          <div class="col-matrix" style="background-color: #C80000">
-            <div class="col-matrix-1">
-              11
-            </div>
-            <div class="col-matrix-2">
-              12
-            </div>
-            <div class="col-matrix-centre">154</div>
-            <div class="col-matrix-3">
-              13
-            </div>
-            <div class="col-matrix-4">
-              14
-            </div>
-          </div>
-
-          <div class="col-matrix" style="background-color: #008232">
-            <div class="col-matrix-1">
-              11
-            </div>
-            <div class="col-matrix-2">
-              12
-            </div>
-            <div class="col-matrix-centre">154</div>
-            <div class="col-matrix-3">
-              13
-            </div>
-            <div class="col-matrix-4">
-              14
-            </div>
-          </div>
-
-          <div class="col-matrix" style="background-color: #CC9933">
-            <div class="col-matrix-1">
-              11
-            </div>
-            <div class="col-matrix-2">
-              12
-            </div>
-            <div class="col-matrix-centre">154</div>
-            <div class="col-matrix-3">
-              13
-            </div>
-            <div class="col-matrix-4">
-              14
-            </div>
-          </div>
-
-          <div class="col-matrix" style="background-color: #209C8F">
-            <div class="col-matrix-1">
-              11
-            </div>
-            <div class="col-matrix-2">
-              12
-            </div>
-            <div class="col-matrix-centre">154</div>
-            <div class="col-matrix-3">
-              13
-            </div>
-            <div class="col-matrix-4">
-              14
-            </div>
-          </div>
-          <div class="col-matrix" style="background-color: #505050">
-            <div class="col-matrix-1">
-              11
-            </div>
-            <div class="col-matrix-2">
-              12
-            </div>
-            <div class="col-matrix-centre">154</div>
-            <div class="col-matrix-3">
-              13
-            </div>
-            <div class="col-matrix-4">
-              14
-            </div>
-          </div>
-          <div class="col-matrix" style="background-color: #505050">
-            <div class="col-matrix-1">
-              11
-            </div>
-            <div class="col-matrix-2">
-              12
-            </div>
-            <div class="col-matrix-centre">154</div>
-            <div class="col-matrix-3">
-              13
-            </div>
-            <div class="col-matrix-4">
-              14
-            </div>
-          </div>
-          <div class="col-matrix" style="background-color: #505050">
-            <div class="col-matrix-1">
-              11
-            </div>
-            <div class="col-matrix-2">
-              12
-            </div>
-            <div class="col-matrix-centre">154</div>
-            <div class="col-matrix-3">
-              13
-            </div>
-            <div class="col-matrix-4">
-              14
-            </div>
-          </div>
         </div>
-
       </div>
     </div>
   </div>
+
+
 
   <div class="row">
     <!-- <div class="col-lg-4 col-md-6"

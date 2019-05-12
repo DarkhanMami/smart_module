@@ -31,6 +31,17 @@
     $scope.kpi_name3 = "Отклонения прогноз/факт";
     $scope.kpi_name4 = "";
 
+    $scope.allMatrixData1 = true;
+    $scope.allMatrixData2 = true;
+    $scope.allMatrixData3 = true;
+
+    $scope.allMatrixOtkl1 = false;
+    $scope.allMatrixOtkl2 = false;
+    $scope.allMatrixOtkl3 = false;
+
+    $scope.matrix_data = {};
+    $scope.matrix = [];
+
 
     $scope.change_kpi = function() {
         $scope.kpi_otm_effect = Math.floor(Math.random() * 100);
@@ -353,6 +364,17 @@
         .error(function (data) {
             console.log("there was an error");
         });
+
+    // $http.get("http://194.87.93.175/nova-api/get_matrixData")
+    $http.get("data/matrix_data.json")
+        .success(function (data) {
+            $scope.matrix_data = data;
+            $scope.matrix = $scope.prepareMatrixData('Общее', 'Общее', 'Общее');
+        })
+        .error(function (data) {
+            console.log("there was an error");
+        });
+
 
     $scope.smartTablePageSize = 10;
 
@@ -1313,6 +1335,85 @@
     $scope.changeDataType = function(byMonth){
         $scope.byMonth = !byMonth;
         $scope.button_first();
+    }
+
+    $scope.prepareMatrixData =function(ngdu,cdng,mr) {
+        var result = [];
+        var temp = [];
+        var ind = 0;
+        if (cdng == 'Общее') {
+            for (var ngdu in $scope.matrix_data) {
+                for (var i in $scope.matrix_data[ngdu]) {
+                    for (var j in $scope.matrix_data[ngdu][i]) {
+                        for (var k in $scope.matrix_data[ngdu][i][j]) {
+                            ind++;
+                            var tmp = $scope.matrix_data[ngdu][i][j][k][0];
+                            temp.push(tmp);
+                        }
+                    } 
+                }
+            }
+        } else if (cdng != 'Общее' && mr == 'Общее') {
+              for (j in $scope.matrix_data[ngdu][cdng]) {
+                  for (k in $scope.matrix_data[ngdu][cdng][j]) {
+                      ind++;
+                      var tmp = $scope.matrix_data[ngdu][cdng][j][k][0];
+                      temp.push(tmp);
+                  }
+              }
+        } else if (cdng != 'Общее' && mr != 'Общее') {
+              for (k in $scope.matrix_data[ngdu][cdng][mr]) {
+                  ind++;
+                  var tmp = $scope.matrix_data[ngdu][cdng][mr][k][0];
+                  temp.push(tmp);
+              }
+        }
+        if (!$scope.allMatrixOtkl1 && !$scope.allMatrixOtkl2 && !$scope.allMatrixOtkl2) {
+            temp.sort(function(a,b) {
+                return b[3]-a[3]
+            });
+        }
+
+        if ($scope.allMatrixOtkl1) {
+            temp.sort(function(a,b) {
+                return Math.abs(b[1]-b[2])-Math.abs(a[1]-a[2])
+            });
+        }
+        if ($scope.allMatrixOtkl2) {
+            temp.sort(function(a,b) {
+                return Math.abs(b[12])-Math.abs(a[12])
+            });
+        }
+        if ($scope.allMatrixOtkl3) {
+            temp.sort(function(a,b) {
+                return Math.abs(b[9])-Math.abs(a[9])
+            });
+        }
+
+        if (!$scope.allMatrixData1) {
+            temp = temp.filter(value => value[5] == 3);
+        }
+
+        if (!$scope.allMatrixData2) {
+            temp = temp.filter(value => value[12] - value[13] < -10);
+        }
+
+        if (!$scope.allMatrixData3) {
+            temp = temp.filter(value => value[7] < 80);
+        }
+
+        var tempVal = Math.ceil(ind / 6);
+        for (var i = 0; i < tempVal; i++) {
+            result[i] = [];
+        }
+
+
+        for (var i = 0; i < ind; i++) {
+            var j = Math.floor(i / 6);
+            result[j].push(temp[i]);
+        }
+
+        return result;
     }
 
 
