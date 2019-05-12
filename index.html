@@ -19,11 +19,32 @@
     font-size:16px;
 }
 
+.col-matrix-heading {
+    height: 50px;
+    min-width: 810px;
+    max-width: 910px;
+    margin: 0px auto;
+    margin-bottom: 10px;
+    background-color: #2C2C2C;
+    border-radius: 3px;
+    margin-left: -10px;
+    align-items: center;
+}
+
 .col-matrix-centre-legend {
     position: absolute;   
     top: 17px;
-    left: 200px;
+    left: 198px;
     font-size: 12px;
+    align-items: center;
+}
+
+.matrix-tab {
+   overflow: auto;
+   width: 810px;
+   height: 492.5px;
+   margin: 0px 0px;
+   background-color: #404040;
 }
 
 .col-matrix-1-legend {
@@ -72,7 +93,7 @@
     height: 12px;
     top: -7px;
     float: right;
-    right: 304.5px;
+    right: 321.5px;
     background-color: #505050;
 }
 
@@ -82,7 +103,7 @@
     height: 12px;
     top: -7px;
     float: right;
-    right: 124.5px;
+    right: 134.5px;
     background-color: #C70000;
 }
 
@@ -92,7 +113,7 @@
     height: 12px;
     top: 13px;
     float: right;
-    right: 280px;
+    right: 298px;
     background-color: #008132;
 }
 
@@ -102,83 +123,84 @@
     height: 12px;
     top: 13px;
     float: right;
-    right: 100px;
+    right: 111px;
     background-color: #CB9833;
 }
 
 .col-matrix-1-kub-text {
     position: absolute;   
     top: 7px;
-    right: 174px;
+    left:  475px;
     font-size: 12px;
 }
 
 .col-matrix-2-kub-text {
     position: absolute;   
     top: 7px;
-    right: 2px;
+    left: 651px;
     font-size: 12px;
 }
 
 .col-matrix-3-kub-text {
     position: absolute;   
     top: 27px;
-    right: 176px;
+    left:  475px;
     font-size: 12px;
 }
 
 .col-matrix-4-kub-text {
     position: absolute;   
     top: 27px;
-    right: 0px;
+    left:  651px;
     font-size: 12px;
 }
 
 .col-matrix {
-    width: 140px;
+    width: 130px;
+    /*margin: auto;*/
     height: 60px;
     /*background-image: url(assets/img/dark.jpg);*/
     border-color: white;
     border: 0.1px solid #373737;
-    filter: blur(0.1px);
+    /*filter: blur(0.1px);*/
+   /* margin: 3.5px 0px;*/
 }
 
 .col-matrix-centre {
-    position: relative;
-    float: left;
-    left: 30px;
-    top: 20px;
-    font-size: 20px;  
-
+    position: absolute;
+    left: 75px;
+    top: 25px;
+    font-size: 20px;
+    text-align: center;
 }
 
 .col-matrix-1 {
-    position: relative;
-    left: 5px;
+    position: absolute;
+    left: 20px;
     float: left;
     top: 3px;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .col-matrix-2 {
-    position: relative;
-    right: 5px;
+    position: absolute;
+    right: 0px;
     float: right;
     top: 3px;
     font-size: 15px;
 }
 
 .col-matrix-3 {
-    position: relative;
-    left: -45px;
+    position: absolute;
+    left: 20px;
     float: left;
     top: 42px;
     font-size: 15px;
 }
 
 .col-matrix-4 {
-    position: relative;
-    right: -12px;
+    position: absolute;
+    right: 0px;
     float: right;
     top: 42px;
     font-size: 15px;
