@@ -247,24 +247,24 @@
       }).reverse();
     var tabs = [{
       label: 'inbox',
-      name: 'Заявки',
+      name: 'Отрытые',
       newMails: 7
     }, {
       label: 'sent',
-      name: 'Открытые',
+      name: 'Закрытые',
       newMails: 2
     }, {
-      label: 'important',
-      name: 'Подтверждено'
-    }, {
       label: 'draft',
-      name: 'Не подтверждено'
+      name: 'В работе'
+    }, {
+      label: 'important',
+      name: 'Подтвержденные'
     }, {
       label: 'spam',
-      name: 'Закрытые'
+      name: 'Не подтвержденные'
     }, {
-      label: 'trash',
-      name: 'Комментированы'
+      // label: 'trash',
+      // name: 'Комментированы'
     }];
 
     return{

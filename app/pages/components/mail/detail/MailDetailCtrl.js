@@ -47,7 +47,7 @@
     };
     $scope.addComment = function (modal) {
         modal.$close();
-        $location.path('components/mail/trash');
+        $location.path('components/mail/important');
     };
 
   }
