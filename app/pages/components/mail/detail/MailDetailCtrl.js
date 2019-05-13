@@ -9,13 +9,14 @@
     .controller('MailDetailCtrl', MailDetailCtrl);
 
   /** @ngInject */
-  function MailDetailCtrl($stateParams, mailMessages, $scope, toastr) {
+  function MailDetailCtrl($stateParams, mailMessages, $scope, toastr, $uibModal, baProgressModal, $state, $location) {
     var vm = this;
     vm.mail = mailMessages.getMessageById($stateParams.id);
     vm.label = $stateParams.label;
 
     $scope.showSuccessMsg = function() {
       toastr.success('Уведомление принято в обработку успешно!');
+      $location.path('components/mail');
     };
 
     $scope.showInfoMsg = function() {
@@ -24,17 +25,30 @@
 
     $scope.showErrorMsg = function() {
       toastr.error("Уведомление отклонено!", 'Спам');
+      $location.path('components/mail');
     };
 
     $scope.showWarningMsg = function() {
       toastr.warning('Уведомление успешно перемещено в данную категорию.', 'Анализ');
     };
 
-//  $scope.showWarningMsg = function($scope, $timeout, $dialog){
-//   $timeout(function(){
-//     $dialog.dialog({}).open('largeModal.html');  
-//   }, 3000);  
-// }
+    $scope.openModal = function (page, size) {
+        $uibModal.open({
+          animation: true,
+          templateUrl: page,
+          controller: MailDetailCtrl,
+          size: size,
+          resolve: {
+            items: function () {
+              return $scope.items;
+            }
+          }
+        });
+    };
+    $scope.addComment = function (modal) {
+        modal.$close();
+        $location.path('components/mail/trash');
+    };
 
   }
 
