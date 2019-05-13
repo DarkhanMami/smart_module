@@ -345,8 +345,8 @@
     $rootScope.chart = chart;
     $scope.data = {};
 
-    // $http.get("http://194.87.93.175/nova-api/get_remontsData")
-    $http.get("data/data.json")
+    $http.get("http://194.87.93.175/nova-api/get_remontsData")
+    // $http.get("data/data.json")
         .success(function (data) {
             var result = [];
             for (var rem in data['stats']) {
@@ -367,8 +367,8 @@
             console.log("there was an error");
         });
 
-    // $http.get("http://194.87.93.175/nova-api/get_matrixData")
-    $http.get("data/matrix_data.json")
+    $http.get("http://194.87.93.175/nova-api/get_matrixData")
+    // $http.get("data/matrix_data.json")
         .success(function (data) {
             $scope.matrix_data = data;
             $scope.matrix = $scope.prepareMatrixData('Общее', 'Общее', 'Общее');
@@ -1380,17 +1380,17 @@
             });
         }
 
-        if (!$scope.allMatrixData1) {
-            temp = temp.filter(value => value[5] == 3);
-        }
+        // if (!$scope.allMatrixData1) {
+        //     temp = temp.filter(value => value[5] == 3);
+        // }
 
-        if (!$scope.allMatrixData2) {
-            temp = temp.filter(value => value[12] - value[13] < -10);
-        }
+        // if (!$scope.allMatrixData2) {
+        //     temp = temp.filter(value => value[12] - value[13] < -10);
+        // }
 
-        if (!$scope.allMatrixData3) {
-            temp = temp.filter(value => value[7] < 80);
-        }
+        // if (!$scope.allMatrixData3) {
+        //     temp = temp.filter(value => value[7] < 80);
+        // }
 
         var tempVal = Math.ceil(ind / 6);
         for (var i = 0; i < tempVal; i++) {

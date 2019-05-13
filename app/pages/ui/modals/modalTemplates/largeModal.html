@@ -1,16 +1,25 @@
-<div class="modal-content">
+<div class="modal-content" style="background-color: #404040 rgba(0, 0, 0, 0.7);">
   <div class="modal-header">
     <button type="button" class="close" ng-click="$dismiss()" aria-label="Close">
       <em class="ion-ios-close-empty sn-link-close"></em>
     </button>
-    <h4 class="modal-title">Modal title</h4>
+    <h4 class="modal-title">Комментарий к подтверждению уведомления</h4>
   </div>
-  <div class="modal-body">
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-    dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
-    suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+
+  <form>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Получатели">
   </div>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Тема">
+  </div>
+  <div class="form-group">
+    <textarea class="form-control" placeholder="Текст"></textarea>
+  </div>
+  <!-- <button type="submit" class="btn btn-success">Send</button> -->
+</form>
+
   <div class="modal-footer">
-    <button type="button" class="btn btn-primary" ng-click="$dismiss()">Save changes</button>
+    <button type="button" class="btn btn-primary" ng-click="$dismiss()">Добавить</button>
   </div>
 </div>

@@ -30,7 +30,11 @@
       toastr.warning('Уведомление успешно перемещено в данную категорию.', 'Анализ');
     };
 
-
+//  $scope.showWarningMsg = function($scope, $timeout, $dialog){
+//   $timeout(function(){
+//     $dialog.dialog({}).open('largeModal.html');  
+//   }, 3000);  
+// }
 
   }
 
