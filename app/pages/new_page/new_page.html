@@ -171,7 +171,7 @@
         <div ba-panel style="height: 462px; overflow: auto;">
             <div class="row" ng-repeat="items in matrix">
                 <div class="col-md-2" ng-repeat="item in items track by $index">
-                    <div class="col-matrix" ng-click="button_fourth(item[0])" ng-if="item[5] == 0" style="background-color: #505050; margin-left: -12px; border-radius: 5px; border: 1px solid #373737;">
+                    <div class="col-matrix" ng-click="button_fourth(item[0])" ng-style="{ 'background': (isHover ? '#ccc' : '#505050') }" ng-mouseenter="isHover = true;" ng-mouseleave="isHover = false;"  ng-if="item[5] == 0" style="background-color: #505050; margin-left: -12px; border-radius: 5px; border: 1px solid #373737;">
                         <div class="col-matrix-1">
                             {{item[1] | number : 0}}
                         </div>
@@ -186,7 +186,7 @@
                             {{item[4]}}%
                         </div>
                     </div>
-                    <div class="col-matrix" ng-click="button_fourth(item[0])" ng-if="item[5] == 1" style="background-color: #C80000; margin-left: -12px; border-radius: 5px; border: 1px solid #373737;">
+                    <div class="col-matrix" ng-click="button_fourth(item[0])" ng-style="{ 'background': (isHover ? '#ccc' : '#C80000') }" ng-mouseenter="isHover = true;" ng-mouseleave="isHover = false;"  ng-if="item[5] == 1" style="background-color: #C80000; margin-left: -12px; border-radius: 5px; border: 1px solid #373737;">
                         <div class="col-matrix-1">
                             {{item[1] | number : 0}}
                         </div>
@@ -201,7 +201,7 @@
                             {{item[4]}}%
                         </div>
                     </div>
-                    <div class="col-matrix" ng-click="button_fourth(item[0])" ng-if="item[5] == 2" style="background-color: #CC9933; margin-left: -12px; border-radius: 5px; border: 1px solid #373737;">
+                    <div class="col-matrix" ng-click="button_fourth(item[0])" ng-style="{ 'background': (isHover ? '#ccc' : '#CC9933') }" ng-mouseenter="isHover = true;" ng-mouseleave="isHover = false;"  ng-if="item[5] == 2" style="background-color: #CC9933; margin-left: -12px; border-radius: 5px; border: 1px solid #373737;">
                         <div class="col-matrix-1">
                             {{item[1] | number : 0}}
                         </div>
@@ -216,7 +216,7 @@
                             {{item[4]}}%
                         </div>
                     </div>
-                    <div class="col-matrix" ng-click="button_fourth(item[0])" ng-if="item[5] == 3" style="background-color: #505050; margin-left: -12px; border-radius: 5px; border: 1px solid #373737;">
+                    <div class="col-matrix" ng-click="button_fourth(item[0])" ng-style="{ 'background': (isHover ? '#ccc' : '#505050') }" ng-mouseenter="isHover = true;" ng-mouseleave="isHover = false;"  ng-if="item[5] == 3" style="background-color: #505050; margin-left: -12px; border-radius: 5px; border: 1px solid #373737;">
                         <div class="col-matrix-1">
                             {{item[1] | number : 0}}
                         </div>

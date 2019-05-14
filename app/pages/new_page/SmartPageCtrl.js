@@ -1255,13 +1255,13 @@
         for (var x in data['Замер (ТБД)']['date']) {
             var obj = {};
             obj["date"] = data['Замер (ТБД)']['date'][x];
-            obj["sales3"] = data['Замер (ТБД)']['numbers'][x];
+            obj["sales1"] = data['Замер (ТБД)']['numbers'][x];
             result.push(obj);
         }
         for (var x in data['ТР ТБД']['date']) {
             var obj = {};
             obj["date"] = data['ТР ТБД']['date'][x];
-            obj["sales1"] = data['ТР ТБД']['numbers'][x];
+            obj["sales3"] = data['ТР ТБД']['numbers'][x];
             result.push(obj);
         }
         for (var x in data['ТР ИСУ']['date']) {
@@ -1272,8 +1272,8 @@
         }
 
         chart.graphs[0].title = "ТР ИСУ";
-        chart.graphs[1].title = "ТР ТБД";
-        chart.graphs[2].title = "Замер (ТБД)";
+        chart.graphs[2].title = "ТР ТБД";
+        chart.graphs[1].title = "Замер (ТБД)";
 
         chart.graphs[0].valueAxis = "v1";
         chart.graphs[1].valueAxis = "v1";
