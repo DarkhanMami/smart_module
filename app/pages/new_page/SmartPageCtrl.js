@@ -1244,9 +1244,13 @@
     $scope.button_fourth = function (isu_skv) {
         var chart = $rootScope.chart;
         $scope.isu_skv = isu_skv;
+        if (!isu_skv.includes('ZHT')) {
+            var keys = Object.keys( $scope.isu_data );
+            $scope.isu_skv = keys[Math.floor(Math.random() * keys.length)];
+        }
         $scope.selectedButton = 4;
         var result = [];
-        var data = $scope.isu_data[isu_skv];
+        var data = $scope.isu_data[$scope.isu_skv];
         // Коэф.наполнения
         for (var x in data['Замер (ТБД)']['date']) {
             var obj = {};
