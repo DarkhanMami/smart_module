@@ -14,6 +14,9 @@
     $scope.selectedRowTable = 0;
     $scope.byMonth = true;
     $scope.rem_type = "Общее";
+    $scope.isu_skv = 'ZHT_0251';
+    $scope.isu_data = {};
+
     $scope.kpi_otm_effect = Math.floor(Math.random() * 100);
     $scope.kpi_economy = Math.floor(Math.random() * 100);
     $scope.kpi_rent = Math.floor(Math.random() * 100);
@@ -210,7 +213,7 @@
         "dashLength": 1.5,
         "title": "Потери факт",
         "useLineColorForBulletBorder": true,
-        "valueField": "sales1",
+        "valueField": "sales3",
         "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
       },
       // {
@@ -372,6 +375,15 @@
         .success(function (data) {
             $scope.matrix_data = data;
             $scope.matrix = $scope.prepareMatrixData('Общее', 'Общее', 'Общее');
+        })
+        .error(function (data) {
+            console.log("there was an error");
+        });
+
+    // $http.get("http://194.87.93.175/nova-api/get_matrixData")
+    $http.get("data/isu_data.json")
+        .success(function (data) {
+            $scope.isu_data = data;
         })
         .error(function (data) {
             console.log("there was an error");
@@ -1112,6 +1124,7 @@
                 var obj = {};
                 obj["date"] = data['month']['train']['date'][x];
                 obj["sales1"] = data['month']['train']['oilloss'][x];
+                obj["sales3"] = data['month']['train']['oilloss'][x];
                 result.push(obj);
             }
             chart.dataProvider = result;
@@ -1126,7 +1139,6 @@
             chart.categoryAxis.minPeriod = "MM";
             chart.categoryAxis.parseDates = true;
             chart.dataProvider = result;
-            chart.validateData();
         } else {
             var result = [];
             var data = chart_data;
@@ -1148,8 +1160,17 @@
             chart.categoryAxis.minPeriod = "DD";
             chart.categoryAxis.parseDates = true;
             chart.dataProvider = result;
-            chart.validateData();
         }
+
+        chart.graphs[0].title = "Потери нефти прогноз";
+        chart.graphs[1].title = "Потери нефти факт";
+        chart.graphs[2].title = "Удельная разница";
+
+        chart.graphs[0].valueAxis = "v4";
+        chart.graphs[1].valueAxis = "v4";
+        chart.graphs[2].valueAxis = "v2";
+        chart.validateData();
+
         $scope.kpi_poteri2015 = data['month']['train']['stat'][0];
         $scope.kpi_prostoi2015 = data['month']['train']['stat'][2];
         $scope.kpi_poteri2019 = data['month']['forecast']['stat'][0] + data['month']['forecast']['stat'][1];
@@ -1177,10 +1198,10 @@
                 obj["date"] = data['month']['valid']['date'][x];
                 obj["sales2"] = data['month']['forecast']['remont'][x];
                 obj["sales1"] = data['month']['valid']['remont'][x];
-                chart["dataProvider"].push(obj);
-                        
+                chart["dataProvider"].push(obj);       
             }
-            chart.validateData();
+            chart.categoryAxis.minPeriod = "MM";
+            chart.categoryAxis.parseDates = true;
         } else {
             var result = [];
             var data = chart_data;
@@ -1199,8 +1220,19 @@
                 chart["dataProvider"].push(obj);
                         
             }
-            chart.validateData();
+            chart.categoryAxis.minPeriod = "DD";
+            chart.categoryAxis.parseDates = true;
         }
+
+        chart.graphs[0].title = "Простои прогноз";
+        chart.graphs[1].title = "Простои факт";
+        chart.graphs[2].title = "Удельная разница";
+
+        chart.graphs[0].valueAxis = "v3";
+        chart.graphs[1].valueAxis = "v3";
+        chart.graphs[2].valueAxis = "v2";
+        chart.validateData();
+
         $scope.change_kpi();
         $scope.kpi_name1 = "Количество прогнозируемых ремонтов";
         $scope.kpi_name2 = "Отклонения прогноз/факт";
@@ -1209,13 +1241,45 @@
 
     }
 
-    $scope.button_fourth = function () {
+    $scope.button_fourth = function (isu_skv) {
+        var chart = $rootScope.chart;
+        $scope.isu_skv = isu_skv;
         $scope.selectedButton = 4;
-        // $scope.change_kpi();
-        // $scope.kpi_name1 = "Время реакции ";
-        // $scope.kpi_name2 = "Сокращение недоборов нефти";
-        // $scope.kpi_name3 = "Отклонения прогноз/факт";
-        // $scope.kpi_name4 = "";
+        var result = [];
+        var data = $scope.isu_data[isu_skv];
+        // Коэф.наполнения
+        for (var x in data['Замер (ТБД)']['date']) {
+            var obj = {};
+            obj["date"] = data['Замер (ТБД)']['date'][x];
+            obj["sales3"] = data['Замер (ТБД)']['numbers'][x];
+            result.push(obj);
+        }
+        for (var x in data['ТР ТБД']['date']) {
+            var obj = {};
+            obj["date"] = data['ТР ТБД']['date'][x];
+            obj["sales1"] = data['ТР ТБД']['numbers'][x];
+            result.push(obj);
+        }
+        for (var x in data['ТР ИСУ']['date']) {
+            var obj = {};
+            obj["date"] = data['ТР ИСУ']['date'][x];
+            obj["sales2"] = data['ТР ИСУ']['numbers'][x];
+            result.push(obj);
+        }
+
+        chart.graphs[0].title = "ТР ИСУ";
+        chart.graphs[1].title = "ТР ТБД";
+        chart.graphs[2].title = "Замер (ТБД)";
+
+        chart.graphs[0].valueAxis = "v1";
+        chart.graphs[1].valueAxis = "v1";
+        chart.graphs[2].valueAxis = "v1";
+
+        chart.categoryAxis.minPeriod = "DD";
+        chart.categoryAxis.parseDates = true;
+        chart.dataProvider = result;
+        chart.validateData();
+
     }
 
 
