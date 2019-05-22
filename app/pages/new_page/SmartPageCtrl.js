@@ -16,6 +16,7 @@
     $scope.rem_type = "Общее";
     $scope.isu_skv = 'ZHT_0251';
     $scope.isu_data = {};
+    $scope.chart_title = "По месторождениям";
 
     $scope.kpi_otm_effect = Math.floor(Math.random() * 100);
     $scope.kpi_economy = Math.floor(Math.random() * 100);
@@ -85,6 +86,9 @@
         color: layoutColors.defaultText,
         axisColor: layoutColors.defaultText,
         gridColor: layoutColors.defaultText,
+        strictMinMax: true,
+        minimum: 50,
+        maximum: 150,
         "id": "v2",
         "title": "Удельный баланс",
         "gridAlpha": 0,
@@ -218,7 +222,7 @@
       },
       {
         "id": "g6",
-        "valueAxis": "v4",
+        "valueAxis": "v1",
         "dataDateFormat": "YYYY-MM",
         color: layoutColors.defaultText,
         "bullet": "round",
@@ -232,12 +236,12 @@
         "dashLength": 1.5,
         "title": "Замер",
         "useLineColorForBulletBorder": true,
-        "valueField": "oil1",
+        "valueField": "isu1",
         "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
       }, 
       {
         "id": "g7",
-        "valueAxis": "v4",
+        "valueAxis": "v1",
         "dataDateFormat": "YYYY-MM",
         color: layoutColors.defaultText,
         "bullet": "round",
@@ -251,11 +255,11 @@
         "dashLength": 0.5,
         "title": "Тоеритический дебит ИСУ",
         "useLineColorForBulletBorder": true,
-        "valueField": "oil2",
+        "valueField": "isu2",
         "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
       }, {
         "id": "g8",
-        "valueAxis": "v3",
+        "valueAxis": "v1",
         "dataDateFormat": "YYYY-MM",
         color: layoutColors.defaultText,
         "bullet": "round",
@@ -264,32 +268,33 @@
         "bulletSize": 5,
         "hideBulletsCount": 50,
         "lineThickness": 2,
-        "lineColor": layoutColors.primaryLight,
+        "lineColor": layoutColors.danger,
         "type": "smoothedLine",
         "dashLength": 0.5,
         "title": "Тоеритический дебит ТБД",
         "useLineColorForBulletBorder": true,
-        "valueField": "loss1",
+        "valueField": "isu3",
         "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
-      }, {
-        "id": "g9",
-        "valueAxis": "v3",
-        "dataDateFormat": "YYYY-MM",
-        color: layoutColors.defaultText,
-        "bullet": "round",
-        "bulletBorderAlpha": 1,
-        "bulletColor": layoutColors.defaultText,
-        "bulletSize": 5,
-        "hideBulletsCount": 50,
-        "lineThickness": 2,
-        "lineColor": layoutColors.successLight,
-        "type": "smoothedLine",
-        "dashLength": 0.5,
-        "title": "Коэффициент наполнения",
-        "useLineColorForBulletBorder": true,
-        "valueField": "loss2",
-        "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
-      },
+      }, 
+      // {
+      //   "id": "g9",
+      //   "valueAxis": "v2",
+      //   "dataDateFormat": "YYYY-MM",
+      //   color: layoutColors.defaultText,
+      //   "bullet": "round",
+      //   "bulletBorderAlpha": 1,
+      //   "bulletColor": layoutColors.defaultText,
+      //   "bulletSize": 5,
+      //   "hideBulletsCount": 50,
+      //   "lineThickness": 2,
+      //   "lineColor": layoutColors.danger,
+      //   "type": "column",
+      //   "dashLength": 1.5,
+      //   "title": "Коэффициент наполнения",
+      //   "useLineColorForBulletBorder": true,
+      //   "valueField": "isu4",
+      //   "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
+      // },
 
       ],
       "chartScrollbar": {
@@ -1113,10 +1118,17 @@
         // $scope.kpi_name3 = "Отклонения прогноз/факт";
         // $scope.kpi_name4 = "";
     }
-
     $scope.button_second = function () {
+        $scope.chart_title = "По месторождениям";
         $scope.selectedButton = 2;
         var chart = $rootScope.chart;
+        chart.graphs[0].hidden = false;
+        chart.graphs[1].hidden = false;
+        chart.graphs[2].hidden = false;
+        chart.graphs[3].hidden = true;
+        chart.graphs[4].hidden = true;
+        chart.graphs[5].hidden = true;
+        // chart.graphs[6].hidden = true;
         if ($scope.byMonth){
             var result = [];
             var data = chart_data;
@@ -1124,7 +1136,7 @@
                 var obj = {};
                 obj["date"] = data['month']['train']['date'][x];
                 obj["sales1"] = data['month']['train']['oilloss'][x];
-                obj["sales3"] = data['month']['train']['oilloss'][x];
+                // obj["sales3"] = data['month']['train']['oilloss'][x];
                 result.push(obj);
             }
             chart.dataProvider = result;
@@ -1133,6 +1145,7 @@
                 obj["date"] = data['month']['valid']['date'][x];
                 obj["sales2"] = data['month']['forecast']['oilloss'][x];
                 obj["sales1"] = data['month']['valid']['oilloss'][x];
+                obj["sales3"] = obj["sales1"] / obj["sales2"] * 100;
                 chart["dataProvider"].push(obj);
                         
             }
@@ -1177,12 +1190,18 @@
         $scope.kpi_prostoi2019 = data['month']['forecast']['stat'][2] + data['month']['forecast']['stat'][3];
         $scope.otkl_poteri = data['month']['valid']['stat'][0] - data['month']['forecast']['stat'][0];
         $scope.otkl_poteri_procent = (data['month']['valid']['stat'][0] - data['month']['forecast']['stat'][0]) / data['month']['valid']['stat'][0] * 100;
-
     }
-
     $scope.button_third = function () {
+        $scope.chart_title = "По месторождениям";
         $scope.selectedButton = 3;
         var chart = $rootScope.chart;
+        chart.graphs[0].hidden = false;
+        chart.graphs[1].hidden = false;
+        chart.graphs[2].hidden = false;
+        chart.graphs[3].hidden = true;
+        chart.graphs[4].hidden = true;
+        chart.graphs[5].hidden = true;
+        // chart.graphs[6].hidden = true;
         if ($scope.byMonth){
             var result = [];
             var data = chart_data;
@@ -1238,52 +1257,56 @@
         $scope.kpi_name2 = "Отклонения прогноз/факт";
         $scope.kpi_name3 = "Прочее";
         $scope.kpi_name4 = "";
-
     }
-
     $scope.button_fourth = function (isu_skv) {
         var chart = $rootScope.chart;
+        chart.graphs[0].hidden = true;
+        chart.graphs[1].hidden = true;
+        chart.graphs[2].hidden = true;
+        chart.graphs[3].hidden = false;
+        chart.graphs[4].hidden = false;
+        chart.graphs[5].hidden = false;
+        // chart.graphs[6].hidden = false;
         $scope.isu_skv = isu_skv;
         if (!isu_skv.includes('ZHT')) {
             var keys = Object.keys( $scope.isu_data );
             $scope.isu_skv = keys[Math.floor(Math.random() * keys.length)];
         }
+
+        $scope.chart_title = "Скважина - " + $scope.isu_skv;
+
         $scope.selectedButton = 4;
         var result = [];
         var data = $scope.isu_data[$scope.isu_skv];
-        // Коэф.наполнения
         for (var x in data['Замер (ТБД)']['date']) {
             var obj = {};
             obj["date"] = data['Замер (ТБД)']['date'][x];
-            obj["sales1"] = data['Замер (ТБД)']['numbers'][x];
+            obj["isu1"] = data['Замер (ТБД)']['numbers'][x];
             result.push(obj);
         }
         for (var x in data['ТР ТБД']['date']) {
             var obj = {};
             obj["date"] = data['ТР ТБД']['date'][x];
-            obj["sales3"] = data['ТР ТБД']['numbers'][x];
+            obj["isu3"] = data['ТР ТБД']['numbers'][x];
             result.push(obj);
         }
         for (var x in data['ТР ИСУ']['date']) {
             var obj = {};
             obj["date"] = data['ТР ИСУ']['date'][x];
-            obj["sales2"] = data['ТР ИСУ']['numbers'][x];
+            obj["isu2"] = data['ТР ИСУ']['numbers'][x];
             result.push(obj);
         }
-
-        chart.graphs[0].title = "ТР ИСУ";
-        chart.graphs[2].title = "ТР ТБД";
-        chart.graphs[1].title = "Замер (ТБД)";
-
-        chart.graphs[0].valueAxis = "v1";
-        chart.graphs[1].valueAxis = "v1";
-        chart.graphs[2].valueAxis = "v1";
+        // for (var x in data['Коэф.наполнения']['date']) {
+        //     var obj = {};
+        //     obj["date"] = data['Коэф.наполнения']['date'][x];
+        //     obj["isu4"] = data['Коэф.наполнения']['numbers'][x];
+        //     result.push(obj);
+        // }
 
         chart.categoryAxis.minPeriod = "DD";
         chart.categoryAxis.parseDates = true;
         chart.dataProvider = result;
         chart.validateData();
-
     }
 
 
