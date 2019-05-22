@@ -230,7 +230,7 @@
         "lineColor": layoutColors.primaryLight,
         "type": "smoothedLine",
         "dashLength": 1.5,
-        "title": "ТР Жидкость",
+        "title": "Замер",
         "useLineColorForBulletBorder": true,
         "valueField": "oil1",
         "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
@@ -249,7 +249,7 @@
         "lineColor": layoutColors.successLight,
         "type": "smoothedLine",
         "dashLength": 0.5,
-        "title": "ТР Нефть",
+        "title": "Тоеритический дебит ИСУ",
         "useLineColorForBulletBorder": true,
         "valueField": "oil2",
         "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
@@ -267,7 +267,7 @@
         "lineColor": layoutColors.primaryLight,
         "type": "smoothedLine",
         "dashLength": 0.5,
-        "title": "ТР ИСУ",
+        "title": "Тоеритический дебит ТБД",
         "useLineColorForBulletBorder": true,
         "valueField": "loss1",
         "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
@@ -285,7 +285,7 @@
         "lineColor": layoutColors.successLight,
         "type": "smoothedLine",
         "dashLength": 0.5,
-        "title": "Фактор",
+        "title": "Коэффициент наполнения",
         "useLineColorForBulletBorder": true,
         "valueField": "loss2",
         "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
