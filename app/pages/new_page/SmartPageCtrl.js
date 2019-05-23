@@ -375,8 +375,8 @@
             console.log("there was an error");
         });
 
-    // $http.get("http://194.87.93.175/nova-api/get_matrixData")
-    $http.get("data/matrix_data.json")
+    $http.get("http://194.87.93.175/nova-api/get_matrixData")
+    // $http.get("data/matrix_data.json")
         .success(function (data) {
             $scope.matrix_data = data;
             $scope.matrix = $scope.prepareMatrixData('Общее', 'Общее', 'Общее');
@@ -385,8 +385,8 @@
             console.log("there was an error");
         });
 
-    // $http.get("http://194.87.93.175/nova-api/get_IsuData")
-    $http.get("data/isu_data.json")
+    $http.get("http://194.87.93.175/nova-api/get_IsuData")
+    // $http.get("data/isu_data.json")
         .success(function (data) {
             $scope.isu_data = data;
         })
