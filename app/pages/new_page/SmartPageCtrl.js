@@ -234,7 +234,7 @@
         "lineColor": layoutColors.primaryLight,
         "type": "smoothedLine",
         "dashLength": 1.5,
-        "title": "Замер",
+        "title": "Замер (АГЗУ)",
         "useLineColorForBulletBorder": true,
         "valueField": "isu1",
         "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
@@ -271,7 +271,7 @@
         "lineColor": layoutColors.danger,
         "type": "smoothedLine",
         "dashLength": 0.5,
-        "title": "Тоеритический дебит ТБД",
+        "title": "Тех.режим по жидкости",
         "useLineColorForBulletBorder": true,
         "valueField": "isu3",
         "balloonText": "[[title]]<br/><b style='font-size: 130%'>[[value]]</b>"
@@ -375,8 +375,8 @@
             console.log("there was an error");
         });
 
-    $http.get("http://194.87.93.175/nova-api/get_matrixData")
-    // $http.get("data/matrix_data.json")
+    // $http.get("http://194.87.93.175/nova-api/get_matrixData")
+    $http.get("data/matrix_data.json")
         .success(function (data) {
             $scope.matrix_data = data;
             $scope.matrix = $scope.prepareMatrixData('Общее', 'Общее', 'Общее');
@@ -385,8 +385,8 @@
             console.log("there was an error");
         });
 
-    $http.get("http://194.87.93.175/nova-api/get_IsuData")
-    // $http.get("data/isu_data.json")
+    // $http.get("http://194.87.93.175/nova-api/get_IsuData")
+    $http.get("data/isu_data.json")
         .success(function (data) {
             $scope.isu_data = data;
         })
@@ -1268,6 +1268,7 @@
         chart.graphs[5].hidden = false;
         // chart.graphs[6].hidden = false;
         $scope.isu_skv = isu_skv;
+        
         if (!isu_skv.includes('ZHT')) {
             var keys = Object.keys( $scope.isu_data );
             $scope.isu_skv = keys[Math.floor(Math.random() * keys.length)];
